@@ -3,10 +3,6 @@
 	p{
 		text-align: center;
 	}
-	video {
-	  width: 100%;
-	  height: auto;
-	}
 	.dot {
 	  height: 25px;
 	  width: 25px;
@@ -85,21 +81,23 @@
 	  	margin-left: 2%;
 	  	padding: 2%;
 	}
-
+	
+/*Gradient Styles*/
 	#grad1 {
   		height: 350px;
   		background-color: lightblue; /* For browsers that do not support gradients */
   		background-image: linear-gradient(royalblue, lightblue); /* Standard syntax (must be last) */
 	}
 	#grad2 {
-      height: 250px;
-      border-style:outset;
+		height: 250px;
+		border-style:outset;
   		background-color: lightblue; /* For browsers that do not support gradients */
 
 	}
 	#grad3 {
   		background-color: lightgreen; /* For browsers that do not support gradients */
 	}
+
 	body{
 		font-family: monospace;
 		padding: 10px;
@@ -109,7 +107,7 @@
 
 
 
-	/*Header TITLE*/
+/*Header TITLE*/
 	.header{
 		padding: 20px;
 		text-align: center;
@@ -121,7 +119,7 @@
 
 
 
-	/*TOP LINK BAR*/
+/*TOP LINK BAR*/
 	.topnav{
 		overflow: hidden;
 		background-color: lightblue;
@@ -134,7 +132,8 @@
 		padding: 17px 16px;
 		text-decoration: double;
 	}
-	/* Change color on hover */
+
+/* Change color on hover */
 	.topnav a:hover {
 	  background-color: lightblue;
 	  color: yellow;
@@ -142,7 +141,7 @@
 
 
 
-  /*Dropdown button stuff*/
+/*Dropdown button stuff*/
 	.dropbtn{
 	  background-color: lightblue ;
 	  font-family: Ariel;
