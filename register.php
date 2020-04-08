@@ -2,22 +2,37 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Main Page</title>
+    <title>Sign up</title>
+
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Register for an account</h1>
+    <h1>Sign up for an Account</h1>
 
+<div id= "form">
     <form action = "register.php" method="post">
-      <p>First name: </p><input type= "text" name = "firstName">
-      <p>Last name: </p><input type = "text"  name = "lastName">
-      <p>Username: </p><input type="text" name="username">
-      <br>
-      <p>Password: </p><input type="text" name="password">
-      <br>
-      <p>Email: </p><input type = "text" name = "email">
-      <input type="submit" name = "submit">
-    </form>
-
+        <div class = "form-group">
+          <label for ="First name"> First name:</label>
+          <input name = "First name" id = "First name" />
+        </div>
+        <div class = "form-group">
+          <label for = "Last name"> Last name: </label>
+          <input name = "Last Name" id = "Last Name">
+      </div>
+      <div class = "form-group">
+        <label for = "Username"> Username: </label>
+        <input name = "Username" id = "Username">
+      <div class = "form-group">
+        <label for ="Password">Password: </label>
+        <input name ="Password" id = "Password">
+      </div>
+      <div class = "form-group">
+        <label for = "Email"> Email: </label>
+        <input name = "Email" id = "Email">
+      </div>
+        <input type = "submit" name = "submit" id = "submit">
+   </form>
+</div>
 
     <?php
     if(isset($_POST['submit'])){

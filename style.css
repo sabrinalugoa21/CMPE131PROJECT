@@ -1,0 +1,58 @@
+body
+{
+  background-color: #003399;
+}
+
+p
+{
+  margin-right: 500px;
+  margin-left: 500px;
+}
+
+h1
+{
+  margin-left: 410px;
+  border-style: solid;
+  border-color: #003399;
+  background-color: white;
+  width: 600px;
+  text-align: center;
+}
+
+#form
+{
+  background-color: #4066b2;
+  height: 600px;
+  width: 600px;
+  margin-right: auto;
+  margin-left:  auto;
+  margin-top: 0px;
+
+}
+
+label
+{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: #333;
+  height: 20px;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: right;
+  margin-right: 15px;
+  float: left;
+}
+
+input
+{
+  height: 20px;
+  width: 300px;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+
+#submit
+{
+  margin-right: 100px;
+}
