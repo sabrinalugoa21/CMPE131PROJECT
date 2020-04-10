@@ -1,6 +1,7 @@
+
 body
 {
-  background-color: #003399;
+  background: linear-gradient(to bottom, royalblue 10%, lightblue 100%);
 }
 
 p
@@ -11,36 +12,38 @@ p
 
 h1
 {
-  margin-left: 410px;
-  border-style: solid;
-  border-color: #003399;
-  background-color: white;
-  width: 600px;
+  color: black;
+  font-family; monospace;
+  margin-left: 422px;
+  border-radius: 10px;
+  background-color: lightyellow;
+  width: 580px;
   text-align: center;
 }
 
-#form
+ #form
 {
-  background-color: #4066b2;
+  background-color: lightyellow;
   height: 600px;
   width: 600px;
   margin-right: auto;
   margin-left:  auto;
   margin-top: 0px;
+  border-radius: 5%;
 
 }
 
 label
 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: monospace;
   font-size: 18px;
   color: #333;
   height: 20px;
   width: 200px;
-  margin-top: 10px;
-  margin-left: 10px;
-  text-align: right;
-  margin-right: 15px;
+  margin-top: 45px;
+  margin-left: 40px;
+  text-align: justify;
+  margin-right: 0px;
   float: left;
 }
 
@@ -49,10 +52,14 @@ input
   height: 20px;
   width: 300px;
   border: 1px solid #000;
-  margin-top: 10px;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  margin-right: 20px;
 }
 
 #submit
 {
-  margin-right: 100px;
+  font-family: monospace;
+  margin-left: 150px;
+  radius: 10px;
 }
