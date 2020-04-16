@@ -14,9 +14,9 @@
         $password = "";
     }
     
-    $password = hash('ripemd128', $password);
+    $password = hash('password', $password);
 
-    $conn = new mysqli("localhost", "bigbankers", "frankbutt!", "bigbank");
+    $conn = new mysqli("localhost", "bankname", "frankbutt!", "bankname");
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
