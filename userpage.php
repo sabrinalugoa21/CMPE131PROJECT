@@ -13,7 +13,7 @@
 
 		<div class="topnav">
           <!This is the sign up button, will add a connection later>
-			<a href="register.php" style="float: right;"> Sign Up</a>
+			<a href="" style="float: right;"> Sign Out</a>
           <!This is the dropdown button with options, they connect to nowhere rn>
 			<div class="dropdown"><button class="dropbtn">MENU</button>
 				<div class="dropdown-content">
@@ -23,6 +23,7 @@
 				</div>
 			</div>
     </div>
+
     <h2></h2>
     <div class="topnav">
           <!This is the Transaction section: NEED TO INSERT IMAGE>
@@ -30,9 +31,9 @@
         <p class = "custom1"> Transactions</p>
       </h1>
 
-        <a href="" style="float: right;"> Transfer</a>
+        <a href="" style="float: center;"> Transfer</a>
         <a href="" style="float: center;"> Withdraw</a>
-        <a href="" style="float: left;"> Deposit </a>
+        <a href="" style="float: center;"> Deposit </a>
       </div>
     </div>
 
@@ -52,6 +53,7 @@
           <!This is the Account Settings section: NEED TO INSERT IMAGE>
       <div id = "grad2", class = "header"><h1>
         <p class = "custom1"> Account Settings</p>
+        <button type="button" onclick="alert('Directing...')">Make Changes</button>
       </h1></div>
     </div>
   </body>
