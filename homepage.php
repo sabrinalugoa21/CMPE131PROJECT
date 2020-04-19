@@ -11,13 +11,23 @@
 <!MENU BAR>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="about.html">About</a>
-    <a href="Register.php">Register</a>
-    <a href="login.php">Sign In</a>
-    <a href="contact.html">Contact</a>
+    <a href="">Checking Account</a>
+    <a href="">Savivngs Account</a>
+    <a href="">Investing</a>
+    <a href="">Better Money Habbits</a>
   </div>
 
   <div id="main">
+    <div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
+
+<div style="padding-left:16px">
+
+</div>
     <div class="header">
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
     <!TOP BAR>
@@ -26,10 +36,14 @@
     <div class="header-right">
       <a class="active" href="#home">Sign In</a>
     </div>
+
+
   </div>
 
   <div style="padding-left:20px">
     <!SIGN IN>
+    <section><h1>TEST SECTION</h1></section>
+
     <!REGISTER>
         <h2></h2>
         <div class = "row">
