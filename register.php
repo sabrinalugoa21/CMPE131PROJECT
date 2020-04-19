@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Sign up for an Account</h1>
-    <h1>hi</h1>
+    <h1>hi 1</h1>
 
 <div id= "form">
     <form action = "register.php" method="post">
