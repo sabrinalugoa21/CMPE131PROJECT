@@ -122,42 +122,44 @@
         clear: both;
       }
 
-      /*TOP LINK BAR*/
-      .topnav {
-        overflow: hidden;
-        background-color: #EDF5E1;
-      }
-      .topnav2 {
-        overflow: hidden;
-        background-color:  #5cdb95;
-      }
-      .topnav a{
+/*TOP LINK BAR*/
+  .topnav {
+    overflow: hidden;
+    background-color: #EDF5E1;
+  }
+  .topnav2 {
+    overflow: hidden;
+    background-color:  #5cdb95;
+  }
+  .topnav a{
 		float: left;
 		display: block;
 		color: #379683;
 		text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+    padding: 14px 16px;
+    text-decoration: none;
 	}
-      .topnav2 a{
-            float: left;
-            display: block;
-            color: #EDF5E1;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-      }
-
-      /* Change color on hover */
-      	.topnav a:hover {
-      	  background-color:  #F7C331;
-      	  color: white;
-      	}
-            .topnav2 a:hover {
-             background-color:  #F7C331;
-             color: white;
-            }
-
+  .topnav2 a{
+    float: left;
+    display: block;
+    color: #EDF5E1;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  /* Change color on hover */
+  .topnav a:hover {
+      background-color:  #F7C331;
+      color: white;
+  }
+  .topnav2 a:hover {
+      background-color:  #F7C331;
+      color: white;
+  }
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
       /*Dropdown button stuff*/
       	.dropbtn{
       	  background-color: #F7882F ;
@@ -243,8 +245,7 @@
 .header {
   overflow: hidden;
   background-color: #f1f1f1;
-  padding: 30px 20px;
-  border-radius: 10px;
+  padding: 20px 10px;
   background-image:url("https://image.shutterstock.com/image-vector/natural-forest-trees-mountains-horizon-260nw-1588730179.jpg");
 }
 .header a {
@@ -286,4 +287,5 @@
   }
 }
 /*END: Header*/
+
 </style>
