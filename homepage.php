@@ -12,9 +12,9 @@
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="">Checking Account</a>
-    <a href="">Savivngs Account</a>
+    <a href="">Savings Account</a>
     <a href="">Investing</a>
-    <a href="">Better Money Habbits</a>
+    <a href="">Better Money Habits</a>
   </div>
 
   <div id="main">
