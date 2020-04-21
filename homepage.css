@@ -7,7 +7,7 @@
     font-family:Georgia;
     color: #05386B;
     padding: 5px;
-    background:	#FFFFF0;
+    background:	#a8e4a0;
     margin: 0;
   }
 /* HEADER
@@ -71,7 +71,7 @@
 /*TOP LINK BAR*/
   .topnav {
     overflow: hidden;
-    background-color: #a8e4a0;
+    background-color: lightyellow;
   }
   .topnav2 {
     overflow: hidden;
@@ -115,7 +115,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #a8e4a0;
+    background-color: #8FBC8F;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -124,12 +124,12 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: lightyellow;
     display: block;
     transition: 0.3s;
   }
   .sidenav a:hover {
-    color: #fffafa;
+    color: #818181;
   }
   .sidenav .closebtn {
     position: absolute;
@@ -152,8 +152,6 @@
   .header {
     overflow: hidden;
     background-color: #f1f1f1;
-    border-style: solid;
-    border-color: #a8e4a0;
     border-width: thick;
     border-top: none;
     padding: 50px 20px;
@@ -203,8 +201,6 @@
 
 /*BEGIN: SECTION*/
   .section{
-    border-bottom-style:solid;
-    border-color: dodgerblue;
     padding-bottom: 5px;
     margin-left: 5%;
     margin-right: 5%;
@@ -219,7 +215,6 @@
     margin-left: 100px;
     opacity: .87;
   }
-
 
   img:hover {
     -webkit-transform: scaleX(-1);
@@ -264,7 +259,7 @@
     border: 3px double #4CAF50;
   }
   .button1:hover {
-    background-color: #fffafa;
+    background-color: #FFFFE0;
     color: #1e90ff;
   }
 /*END: Buttons*/
@@ -273,7 +268,7 @@
   /* Slideshow container */
   .slideshow-container {
     position: relative;
-    background: #a8e4a0;
+    background: lightyellow;
   }
   /* Slides */
   .mySlides {
@@ -290,7 +285,7 @@
     width: auto;
     margin-top: -30px;
     padding: 16px;
-    color: #fffafa;
+    color: #8FBC8F;
     font-weight: bold;
     font-size: 20px;
     border-radius: 0 3px 3px 0;
@@ -304,14 +299,14 @@
   }
   /* On hover, add a black background color with a little bit see-through */
   .prev:hover, .next:hover {
-    background-color: #fffafa;
-    color: black;
+    background-color: #8FBC8F;
+    color: #fffafa;
   }
   /* The dot/bullet/indicator container */
   .dot-container {
       text-align: center;
       padding: 20px;
-      background: #4CAF50;
+      background: #8FBC8F;
   }
   /* The dots/bullets/indicators */
   .dot {
