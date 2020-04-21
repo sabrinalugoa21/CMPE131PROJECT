@@ -1,0 +1,83 @@
+<style>
+      * {
+        box-sizing: border-box;
+      }
+      /*BODY TEXT*/
+      body {
+        font-family: Arial;
+        color: #05386B;
+        padding: 10px;
+        background: #379683;
+      }
+      /* HEADER */
+      .header {
+        padding: 30px;
+        text-align: center;
+        background: #5cdb95;
+      }
+      .header h1 {
+        font-size: 35px;
+        color: #EDF5E1;
+      }
+
+      /*ACCOUNT CARDS*/
+      /* Left column */
+      .leftcolumn {
+        float: left;
+        padding-left: 40px;
+        width: 50%;
+      }
+
+      /* Right column */
+      .rightcolumn {
+        float: right;
+        width: 25%;
+        padding-right: 40px;
+
+      }
+
+      .account {
+        background-color: #EDF5E1;
+        padding: 40px;
+        margin-top: 40px;
+        width: 75%;
+      }
+
+      .column {
+        background-color: #EDF5E1;
+        padding: 40px;
+        margin-top: 40px;
+        width: 95%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /*TOP LINK BAR*/
+      .topnav {
+        overflow: hidden;
+        background-color: #EDF5E1;
+      }
+
+      .topnav a{
+            float: left;
+            display: block;
+            color: #379683;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+      }
+      .topnav2 a{
+            float: left;
+            display: block;
+            color: #EDF5E1;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+      }
+
+</style>
