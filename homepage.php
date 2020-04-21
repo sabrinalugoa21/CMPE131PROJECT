@@ -22,9 +22,6 @@
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
         <!TOP BAR>
         <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
-        <div class="header-right">
-          <a class="active" href="#home">Sign In</a>
-        </div>
       </div>
 
       <div class="topnav">
@@ -32,6 +29,9 @@
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
+        <div class="header-right">
+          <a class="active" href="#home">Sign In</a>
+        </div>
       </div>
       <br>
       <!Register>
