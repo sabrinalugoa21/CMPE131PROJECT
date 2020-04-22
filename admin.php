@@ -1,38 +1,46 @@
 <?php
   $logged_in = false;
 
-  if( isset($_POST["username"]) && isset($_POST["password"])){
-    if($_POST["username"] && $_POST["password"]){
-      $username = $_POST["username"];
-      $password = $_POST["password"];
+  if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["username"])
+      && isset($_POST["password"]) && isset($_POST["email"])){
+    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && $_POST["password"]
+        && $_POST["email"]){
+        $fname = $_POST["fname"];
+        $lname = $_POST["lname"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $email = $_POST["email"];
 
+      // Create connection
       $conn = mysqli_connect("localhost","root","","users");
+
+      //Check connection
       if(!$conn)
       {
         die("Connection failed: " . mysqli_connect_error());
       }
 
-      $sql = "SELECT password FROM student WHERE username = '$username'";
+      $sql = "SELECT password FROM bankaccount WHERE username = '$username'";
 
       $results = mysqli_query($conn, $sql);
-      if($results)
-      {
+
+      if($results){
         $row = mysqli_fetch_assoc($results);
 
-        if( $row["password"] === $password)
-        {
+        if( $row["password"] === $password){
           $logged_in = true;
-          $sql = "SELECT * FROM student";
+          $sql = "SELECT * FROM bankaccount";
           $results = mysqli_query($conn, $sql);
         } else
         {
-          echo "password incorrect";
+          echo "Password incorrect";
         }
       } else {
         echo mysqli_error($conn);
       }
 
-      mysqli_close($conn);
+      mysqli_close($conn); // close connection
+      
     } else {
       echo "Nothing was submitted.";
     }
