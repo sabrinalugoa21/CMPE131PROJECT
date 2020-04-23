@@ -17,22 +17,39 @@
     </div>
 
     <div id="main">
+<<<<<<< HEAD
+=======
+
+      <div class="header">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+        <!TOP BAR>
+        <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+      </div>
+
+>>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
       <div class="topnav">
         <a class="active" href="#home">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
+<<<<<<< HEAD
       </div>
 
       <div class="header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
         <!TOP BAR>
         <a href="homepage.php", class="logo", style="color: white">Bank Name</a>
+=======
+>>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
         <div class="header-right">
           <a class="active" href="#home">Sign In</a>
         </div>
       </div>
+<<<<<<< HEAD
 
+=======
+      <br>
+>>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
       <!Register>
       <div class = "section">
         <div class = "row">
@@ -70,6 +87,10 @@
       <!Testemonials>
       <br>
       <div class = "section">
+<<<<<<< HEAD
+=======
+        <br>
+>>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
         <div class="slideshow-container">
           <div class="mySlides">
             <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
@@ -125,6 +146,11 @@
             dots[slideIndex-1].className += " active";
           }
         </script>
+<<<<<<< HEAD
+=======
+
+        <br>
+>>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
       </div>
 
       <br>

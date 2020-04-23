@@ -44,7 +44,11 @@
                       <h1> Transactions</h1>
                       <div class="topnav2">
                            <a href="" style="float: left;">Transfer</a>
+<<<<<<< HEAD
                             <a href="" style="float: left;">Deposit</a>
+=======
+                            <a href="deposit.php" style="float: left;">Deposit</a>
+>>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
                      </div>
                 </div>
             </div>
