@@ -7,11 +7,7 @@
     font-family:Georgia;
     color: #05386B;
     padding: 5px;
-<<<<<<< HEAD
-    background:	#FFFFF0;
-=======
     background:	#a8e4a0;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     margin: 0;
   }
 /* HEADER
@@ -75,11 +71,7 @@
 /*TOP LINK BAR*/
   .topnav {
     overflow: hidden;
-<<<<<<< HEAD
-    background-color: #a8e4a0;
-=======
     background-color: lightyellow;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
   }
   .topnav2 {
     overflow: hidden;
@@ -123,11 +115,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-<<<<<<< HEAD
-    background-color: #a8e4a0;
-=======
     background-color: #8FBC8F;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -136,20 +124,12 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-<<<<<<< HEAD
-    color: #818181;
-=======
     color: lightyellow;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     display: block;
     transition: 0.3s;
   }
   .sidenav a:hover {
-<<<<<<< HEAD
-    color: #fffafa;
-=======
     color: #818181;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
   }
   .sidenav .closebtn {
     position: absolute;
@@ -172,11 +152,6 @@
   .header {
     overflow: hidden;
     background-color: #f1f1f1;
-<<<<<<< HEAD
-    border-style: solid;
-    border-color: #a8e4a0;
-=======
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     border-width: thick;
     border-top: none;
     padding: 50px 20px;
@@ -226,11 +201,6 @@
 
 /*BEGIN: SECTION*/
   .section{
-<<<<<<< HEAD
-    border-bottom-style:solid;
-    border-color: dodgerblue;
-=======
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     padding-bottom: 5px;
     margin-left: 5%;
     margin-right: 5%;
@@ -246,10 +216,6 @@
     opacity: .87;
   }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
   img:hover {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
@@ -293,11 +259,7 @@
     border: 3px double #4CAF50;
   }
   .button1:hover {
-<<<<<<< HEAD
-    background-color: #fffafa;
-=======
     background-color: #FFFFE0;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     color: #1e90ff;
   }
 /*END: Buttons*/
@@ -306,11 +268,7 @@
   /* Slideshow container */
   .slideshow-container {
     position: relative;
-<<<<<<< HEAD
-    background: #a8e4a0;
-=======
     background: lightyellow;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
   }
   /* Slides */
   .mySlides {
@@ -327,11 +285,7 @@
     width: auto;
     margin-top: -30px;
     padding: 16px;
-<<<<<<< HEAD
-    color: #fffafa;
-=======
     color: #8FBC8F;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
     font-weight: bold;
     font-size: 20px;
     border-radius: 0 3px 3px 0;
@@ -345,23 +299,14 @@
   }
   /* On hover, add a black background color with a little bit see-through */
   .prev:hover, .next:hover {
-<<<<<<< HEAD
-    background-color: #fffafa;
-    color: black;
-=======
     background-color: #8FBC8F;
     color: #fffafa;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
   }
   /* The dot/bullet/indicator container */
   .dot-container {
       text-align: center;
       padding: 20px;
-<<<<<<< HEAD
-      background: #4CAF50;
-=======
       background: #8FBC8F;
->>>>>>> 76a1f2eb7dcec048d5fdf7d6eb6b9e4091b56ca1
   }
   /* The dots/bullets/indicators */
   .dot {
