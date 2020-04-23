@@ -1,0 +1,23 @@
+body
+{
+  background: lightgreen;
+  background-size: auto;
+  backgound-repeat: no-repeat;
+}
+
+h1
+{
+  color: white;
+  width: auto;
+  height: 400px;
+  line-height: 450px;
+  font-family: monospace;
+  border-radius: 10px;
+  background: #379683;
+  text-align: center;
+}
+
+label
+{
+
+}
