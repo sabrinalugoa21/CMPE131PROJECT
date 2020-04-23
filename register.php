@@ -45,9 +45,11 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
+    $acctnum = rand(100000,199999); //expand random number range if needed
+
 
     //Create connection
-    $conn = mysqli_connect("localhost", "root", "", "userbank");
+    $conn = mysqli_connect("localhost", "root", "", "userbank"); //change "userbank" based on database name
 
     //Check connection
     if(!$conn){
@@ -55,13 +57,15 @@
     }
 
     //Register user
-    $sql = "INSERT INTO bankaccount (fname, lname, username, password, email) VALUES
-            ('$fname','$lname','$username','$password','$email')";
+    $sql = "INSERT INTO bankaccount (fname, lname, username, password, email, acctnum) VALUES
+            ('$fname','$lname','$username','$password','$email','$acctnum')";
 
     // echo $sql;
     $results = mysqli_query($conn, $sql);
 
-    if ($results) { 
+    if ($results) {
+
+        echo "Registered."; //As a toast message
         echo "Registered.";
     } else {
         echo mysqli_error($conn);
@@ -71,7 +75,7 @@
 
 
     } else {
-      echo "A field is empty.";
+      echo "A field is empty."; //Also as a toast message
     }
   } //else {
       //echo "Form was not submitted.";
