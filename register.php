@@ -6,7 +6,16 @@
   <link rel="stylesheet" href="registerStyle.css">
   </head>
   <body>
-    <h1>Sign up for an Account</h1>
+    <h1>Registeration</h1>
+    <div class = "column1">
+    <img src ="savePig.jpg" alt = "save money!" id = "box1">
+    <p id = "box2">[INCENTIVE INSERT HERE]</p>
+  </div>
+  <div class="column2">
+    <p id = "box4">[INSPIRATIONAL QUOTE]</p>
+    <img src = "quick.jpeg" alt= "inspiration" id = "box3">
+
+  </div>
 
 
 <div id= "form">
