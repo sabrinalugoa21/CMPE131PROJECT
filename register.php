@@ -31,6 +31,7 @@
         <input name = "email" type = "text">
       </div>
         <input type = "submit" name = "submit" id = "submit">
+
    </form>
 </div>
 <?php
@@ -60,12 +61,8 @@
     // echo $sql;
     $results = mysqli_query($conn, $sql);
 
-    if ($results) {
-
-        sleep(3);
-        header("location: homepage.php");
+    if ($results) { 
         echo "Registered.";
-
     } else {
         echo mysqli_error($conn);
       }
