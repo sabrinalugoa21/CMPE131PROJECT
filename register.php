@@ -66,7 +66,7 @@
     if ($results) {
 
         echo "Registered."; //As a toast message
-        echo "Registered.";
+
     } else {
         echo mysqli_error($conn);
       }
