@@ -31,6 +31,12 @@
       <div class = "form-group">
         <label for = "Username"> Username: </label>
         <input name = "username" type = "text">
+      </div>
+        <div class = "form-group">
+          <label for = "Pin"> Pin: </label>
+          <input name = "pin" type = "text">
+        </div>
+
       <div class = "form-group">
         <label for ="Password">Password: </label>
         <input type ="password" name="password">
