@@ -33,8 +33,8 @@
         <input name = "username" type = "text">
       </div>
         <div class = "form-group">
-          <label for = "Pin"> Pin: </label>
-          <input name = "pin" type = "text">
+          <label for = "Pin"> PIN: </label>
+          <input name = "pin" type = "password">
         </div>
 
       <div class = "form-group">
@@ -51,14 +51,15 @@
 </div>
 <?php
   if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["username"])
-      && isset($_POST["password"]) && isset($_POST["email"])){
-    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && $_POST["password"]
+      && isset($_POST["password"]) && isset($_POST["pin"]) && isset($_POST["email"])){
+    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && $_POST["password"] && $_POST["pin"]
         && $_POST["email"]){
 
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $pin = $_POST["pin"];
     $email = $_POST["email"];
     $acctnum = rand(100000,199999); //expand random number range if needed
 
@@ -72,8 +73,8 @@
     }
 
     //Register user
-    $sql = "INSERT INTO bankaccount (fname, lname, username, password, email, acctnum) VALUES
-            ('$fname','$lname','$username','$password','$email','$acctnum')";
+    $sql = "INSERT INTO bankaccount (fname, lname, username, password, email, acctnum, pin) VALUES
+            ('$fname','$lname','$username','$password','$email','$acctnum', '$pin')";
 
     // echo $sql;
     $results = mysqli_query($conn, $sql);
