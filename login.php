@@ -1,3 +1,59 @@
+<?php
+if (isset($_POST["username"]) && isset($_POST["password"])){
+
+      $conn = mysqli_connect("localhost", "root", "", "userbank");
+
+      if(!$conn){
+          die("Connection failed" . mysqli_connect_error());
+      }
+
+      $username = $_POST['username'];
+      $pin = $_POST['password'];
+      if (empty($username) || empty($pin)){
+            echo "variables empty";
+            exit();
+      }
+      else {
+            $sql = "SELECT * FROM useraccounts WHERE userID=? OR email=?;";
+            $stmt = mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt, $sql)) {
+                  echo "first if error";
+                  exit();
+            }
+            else{
+                  mysqli_stmt_bind_param($stmt, "si", $username, $username);
+                  mysqli_stmt_execute($stmt);
+                  $result = mysqli_stmt_get_result($stmt);
+
+                  if ($row = mysqli_fetch_assoc($result)){
+                        $pwdCheck = password_verify($pin, $row['pin']);
+                        echo ( 'Pin: '.$row['pin'] );
+                        if(!($pin == $row['pin'])){
+                              echo "password check error";
+                        }
+                        else{
+                              session_start();
+                              $_SESSION['userID']= $row['userID'];
+
+                              echo("Session ID: " .$_SESSION['userID']);
+                              $_SESSION['fname']= $row['fname'];
+                              $_SESSION['lname']= $row['lname'];
+                              $_SESSION['username']= $row['username'];
+                              $_SESSION['email']= $row['email'];
+
+                        }
+                  }
+                  else{
+                        echo "error found";
+                  }
+            }
+      }
+}
+else {
+      echo "A field is empty."; //will remove this once I figure some stuff out
+}
+?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -7,72 +63,24 @@
 	<!At this point in time, I will be using the registerStyle for the login page as well>
   </head>
   <body>
-
+        <div class="header">
+         <!TOP BAR>
+         <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+       </div>
   <div id= "form">
     <form action = "login.php" method="post">
 	<! Login currently set to use username and password for login, may want to include email option>
-      <div class = "form-group">
-        <label for = "Username"> Username: </label>
-        <input name = "Username" id = "Username">
-      <div class = "form-group">
-        <label for ="Password">Password: </label>
-        <input name ="Password" id = "Password">
-      </div>
-        <input type = "submit" name = "submit" id = "submit">
+            <input type= "text" name = "username" placeholder = "username/email">
+            <input type= "text" name = "password" placeholder = "pin">
+      <button type = "submit" name= "login-submit">Login</button>
 	</form>
-  </div>
-
-  <?php
-    session_start();
-
-    $errorRet = "";
-    if(isset($_POST["loginuser"])){
-        $username = $_POST["loginuser"];
-    } else {
-        $username = "";
-    }
-
-    if(isset($_POST["loginpass"])){
-        $password = $_POST["loginpass"];
-    } else {
-        $password = "";
-    }
-
-    $password = hash('password', $password);
-
-    $conn = new mysqli("localhost", "bankname", "frankbutt!", "bankname");
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
-
-	$sql = "SELECT * FROM Users;";
-	$result = $conn->query($sql);
-	if ($result->num_rows > 0) {
-	    while($row = $result->fetch_assoc()) {
-	    	if(strtolower($row["USER_NAME"]) == strtolower($username)) {
-	    	    if($row["USER_PASS"] == $password) {
-    	            $_SESSION["USER_NAME"] = $row["USER_NAME"];
-    	            $_SESSION["SECURITY_LVL"] = $row["SECURITY_LVL"];
-    	            $_SESSION["USER_ID"] = $row["USER_ID"];
-    	            $_SESSION["PATRON_FIRST_NAME"] = $row["PATRON_FIRST_NAME"];
-    	            $_SESSION["PATRON_LAST_NAME"] = $row["PATRON_LAST_NAME"];
-    	            $_SESSION["USER_PIN"] = $row["USER_PIN"];
-    	            header('Location: /landing/');
-    	            exit;
-    	        } else {
-    	            $errorRet = "2";
-    	            break;
-    	        }
-	        } else {
-	            $errorRet = "1";
-	        }
-	    }
-	} else {
-	    $errorRet = "3";
-	}
-
-    header('Location: /login/?return='.$errorRet);
-    exit;
-
-    $conn->close();
-?>
+      <main>
+            <?php
+                  if(isset($_SESSION['username'])){
+                        echo '<p>Logged IN</p>';
+                  }
+                  else{
+                        echo '<p>Logged OUT</p>';
+                  }
+            ?>
+      </main>
