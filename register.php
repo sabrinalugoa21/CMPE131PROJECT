@@ -37,10 +37,10 @@
           <input name = "pin" type = "password">
         </div>
 
-      <div class = "form-group">
+      <!--div class = "form-group">
         <label for ="Password">Password: </label>
         <input type ="password" name="password">
-      </div>
+      </div-->
       <div class = "form-group">
         <label for = "Email"> Email: </label>
         <input name = "email" type = "text">
@@ -51,17 +51,17 @@
 </div>
 <?php
   if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["username"])
-      && isset($_POST["password"]) && isset($_POST["pin"]) && isset($_POST["email"])){
-    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && $_POST["password"] && $_POST["pin"]
+      /*&& isset($_POST["password"])*/ && isset($_POST["pin"]) && isset($_POST["email"])){
+    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && /*$_POST["password"] &&*/ $_POST["pin"]
         && $_POST["email"]){
 
+    $userID = rand(100000,199999); //expand random number range if needed
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    //$password = $_POST["password"]; //Commented out password just in case
     $pin = $_POST["pin"];
     $email = $_POST["email"];
-    $acctnum = rand(100000,199999); //expand random number range if needed
 
 
     //Create connection
@@ -73,8 +73,8 @@
     }
 
     //Register user
-    $sql = "INSERT INTO bankaccount (fname, lname, username, password, email, acctnum, pin) VALUES
-            ('$fname','$lname','$username','$password','$email','$acctnum', '$pin')";
+    $sql = "INSERT INTO useraccounts (userID, fname, lname, username, /*password,*/ pin, email) VALUES
+            ('$userID','$fname','$lname','$username','$pin','$email')";
 
     // echo $sql;
     $results = mysqli_query($conn, $sql);
