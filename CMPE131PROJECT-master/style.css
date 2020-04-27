@@ -1,0 +1,183 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	p{
+		text-align: center;
+	}
+	.dot {
+	  height: 25px;
+	  width: 25px;
+	  background-color: lightblue;
+	  border-radius: 50%;
+	  display: inline-block;
+	}
+	.dot1{
+	  height: 25px;
+	  width: 25px;
+	  background-color: lightgrey;
+	  border-radius: 50%;
+	  display: inline-block;
+	}
+
+	.info{
+		margin-top: 0%;
+		font-size: 14px;
+		margin-left: 15px;
+		margin-bottom: 0px;
+	}
+
+	.date{
+		text-align: right;
+		border-bottom: 1px dotted gray;
+		font-size: 13px;
+		color: gray;
+		margin: 0%;
+		margin-bottom: 0%;
+	}
+	.section1{
+		text-align: left;
+		font-size: 16px;
+		margin: 2px;
+		font-weight: bold;
+	}
+	.section{
+		text-align: center;
+		border: 1px dotted black;
+  		outline-color: black;
+  		margin-bottom: 0%;
+	}
+	.custom1 {
+		color: white;
+		text-align: center;
+		border-color: lightblue;
+	}
+
+	.custom {
+		color: lightblue;
+		text-align: center;
+		border-style: double;
+		border-color: lightblue;
+	}
+
+	#imagesize {
+		padding-top: 0%;
+		width: 80%;
+		height: 50%;
+	}
+
+	*{
+		box-sizing: border-box;
+	}
+
+	aside{
+		clear: left;
+		float: left;
+		width: 30%;
+		padding: 5%;
+	}
+
+	main {
+		float: right;
+	  	width: 65%;
+	  	margin-left: 2%;
+	  	padding: 2%;
+	}
+
+/*Gradient Styles*/
+	#grad1 {
+  		height: 350px;
+  		background-color: lightblue; /* For browsers that do not support gradients */
+  		background-image: linear-gradient(royalblue, lightblue); /* Standard syntax (must be last) */
+	}
+	#grad2 {
+		height: 250px;
+		border-style:outset;
+  		background-color: lightblue; /* For browsers that do not support gradients */
+
+	}
+	#grad3 {
+  		background-color: lightgreen; /* For browsers that do not support gradients */
+	}
+
+	body{
+		font-family: monospace;
+		padding: 10px;
+		background: lightyellow;
+	}
+
+
+
+
+/*Header TITLE*/
+	.header{
+		padding: 20px;
+		text-align: center;
+		background-color: lightblue;
+	}
+	.header h1{
+		font-size: 50px;
+	}
+
+
+
+/*TOP LINK BAR*/
+	.topnav{
+		overflow: hidden;
+		background-color: lightblue;
+	}
+	.topnav a{
+		float: left;
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 17px 16px;
+		text-decoration: double;
+	}
+
+/* Change color on hover */
+	.topnav a:hover {
+	  background-color: lightblue;
+	  color: yellow;
+	}
+
+
+
+/*Dropdown button stuff*/
+	.dropbtn{
+	  background-color: lightblue ;
+	  font-family: Ariel;
+	  color: white;
+	  font-size: 16px;
+	  border: none;
+	  cursor: pointer;
+
+	}
+	.dropdown{
+	  font-family: Ariel;
+	  position: absolute;
+	  display: block;
+	  padding: 15px;
+	  text-align: center;
+	}
+	.dropdown-content{
+	  display: none;
+	  position: absolute;
+	  background-color: lightyellow;
+	  min-width: 10px;
+	  box-shadow: 0px 8px 14px 0px rgba(0,0,0,0.2);
+	}
+	.dropdown-content a{
+	  color: black;
+	  text-decoration: none;
+	  display: block;
+	}
+	.dropdown-content a:hover {
+		background-color: lightblue
+	}
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+	.dropdown:hover .dropbtn{
+		background-color: lightblue;
+	 	color: yellow;
+	}
+</style>
