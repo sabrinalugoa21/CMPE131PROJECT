@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="registerStyle.css">
   </head>
   <body>
-    <h1>Registeration</h1>
+    <h1>Registration</h1>
     <div class = "column1">
     <img src ="savePig.jpg" alt = "save money!" id = "box1">
     <p id = "box2">[INCENTIVE INSERT HERE]</p>
