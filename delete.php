@@ -7,7 +7,7 @@ if(!$conn){
     die("Connection failed" . mysqli_connect_error());
 }
 //select $query
-$sql = "DELETE FROM accounts WHERE userID = '$_GET[id]'";
+$sql = "DELETE FROM accounts WHERE acctNum = '$_GET[id]'";
 
 //execute $query
 if(mysqli_query($conn,$sql))
