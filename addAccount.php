@@ -1,5 +1,5 @@
-
 <?php
+  session_start();
   //connnect to localhost
   $conn = mysqli_connect("localhost","root","","bankaccount");
   echo "connected! <br>";
@@ -14,11 +14,11 @@
 
 
 /*BEGIN: ADD AN ACCOUNT*/
-  if (isset($_POST["userID"])&& isset($_POST["acctName"]))
+  if (isset($_POST["acctName"]))
   {
-    if ($_POST["userID"] && $_POST["acctName"])
+    if ($_POST["acctName"])
     {
-    $userid = $_POST['userID'];
+    $userid = $_SESSION['userID'];
     $acctname= $_POST['acctName'];
  //expand random number range if needed
     //Register user
@@ -46,10 +46,6 @@
     //ADD an ACCOUNT
         <form action = "addAccount.php" method="post">
             <div class = "form-group">
-              <label for = "userID"> UserID: </label>
-              <input name = "userID" type = "text">
-          </div>
-            <div class = "form-group">
               <label for = "acctName"> account name: </label>
               <input name = "acctName" type = "text">
             </div>
@@ -57,3 +53,14 @@
        </form>
   </body>
 </html>
+<main>
+      <?php
+            if(isset($_SESSION['username'])){
+                  echo '<p>Logged IN</p>';
+                  echo("Session ID: " .$_SESSION['userID']);
+            }
+            else{
+                  echo '<p>Logged OUT</p>';
+            }
+      ?>
+</main>
