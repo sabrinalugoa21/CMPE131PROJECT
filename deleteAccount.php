@@ -7,6 +7,7 @@
       <th>Balance</th>
     </tr>
     <?php
+      session_start();
       //connnect to localhost
       $conn = mysqli_connect("localhost","root","","bankaccount");
       echo "connected! <br>";
@@ -14,9 +15,10 @@
       if(!$conn){
           die("Connection failed" . mysqli_connect_error());
       }
+      $userid = $_SESSION['userID'];
       //select $query
       echo "Accounts whose balance is zero are only displayed<br>";
-      $sql = "SELECT * FROM accounts WHERE balance = 0";
+      $sql = "SELECT * FROM accounts WHERE userID = '$userid' AND balance = 0";
 
       //execute $query
       $records = mysqli_query($conn,$sql);
@@ -27,7 +29,7 @@
         echo "<td>".$row['acctNum']."</td>";
         echo "<td>".$row['acctName']."</td>";
         echo "<td>".$row['balance']."</td>";
-        echo "<td><a href = delete.php?id=".$row['userID'].">Delete</a></td>";
+        echo "<td><a href = delete.php?id=".$row['acctNum'].">Delete</a></td>";
 
       }
       $results = mysqli_query($conn, $sql);
