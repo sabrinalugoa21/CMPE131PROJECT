@@ -43,7 +43,7 @@
                 <div class = "account">
                       <h1> Transactions</h1>
                       <div class="topnav2">
-                           <a href="" style="float: left;">Transfer</a>
+                           <a href="withdraw.php" style="float: left;">Withdraw</a>
                             <a href="deposit.php" style="float: left;">Deposit</a>
 
                      </div>
