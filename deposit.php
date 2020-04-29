@@ -30,9 +30,9 @@
                   <div class = "column">
                         <h1> Deposit to Account</h1>
                         <form>
-                          <p>Account #: <input type="number" name = "accountNumber"> </p>
-                          <p>PIN #: <input type="number" name = "pin"> </p>
-                          <p>Amount ($): <input type="number" name = "amount"> </p>
+                          <p>Account #: <input type="text"> </p>
+                          <p>PIN #: <input type="text"> </p>
+                          <p>Amount ($): <input type="text"> </p>
                           <input type="submit">
                         </form>
                        </div>
@@ -40,54 +40,3 @@
 
   </body>
 </html>
-
-
-<?php
-
-    $conn = mysqli_connect("localhost", "root", "", "users");
-    if(!'conn'){
-        die("connection failed");
-    }
-    // echo $_GET["account"];
-    // echo $_GET["pin"];
-    if( isset($_GET["accountNumber"]) && isset($_GET["pin"]) && isset($_GET["amount"])){
-      $account = $_GET['accountNumber'];
-      $pin = $_GET['pin'];
-      $balance = $_GET['amount'];
-
-      $sql = "INSERT INTO bankAccount(accountNumber, pin,accountBalance) VALUES('$account','$pin','$balance') ";
-      echo $sql;
-      $result = mysqli_query($conn, $sql);
-      if($result){
-          echo "The data has been added correctly";
-      }
-      else{
-          echo mysqli_error($conn);
-          echo "THERE IS AN ERROR";
-      }
-      mysqli_close($conn);
-
-  }//iset ending bracket
-
-
-  // mysqli_query($conn,$sql);
-    // $records = mysqli_query($conn,$sql);
-    // while($row = mysqli_fetch_array($records) ){
-    //     echo "<tr>";
-    //     echo "<td>".$row['username']."</td>";
-    //     echo " password ";
-    //     echo "<td>".$row['password']."</td>";
-    //     echo "<br/>";
-    // }
-    
-
-?>
-
-
-   
-
-
-
-
-
-

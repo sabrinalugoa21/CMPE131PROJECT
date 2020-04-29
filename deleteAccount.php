@@ -9,7 +9,7 @@
     <?php
       session_start();
       //connnect to localhost
-      $conn = mysqli_connect("localhost","root","","bankaccount");
+      $conn = mysqli_connect("localhost","root","","userbank");
       echo "connected! <br>";
       //check connection
       if(!$conn){

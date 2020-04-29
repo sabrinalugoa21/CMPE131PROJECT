@@ -2,15 +2,15 @@
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
     <title>Bank Name</title>
-    <link rel="stylesheet" href="userpage.css">
+    <link rel="stylesheet" href="test_userpage.css">
   </head>
 
   <body>  <!This is the title page>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="">Checking Account</a>
-      <a href="">Savivngs Account</a>
-      <a href="">Transaction His</a>
+      <a href="">Savings Account</a>
+      <a href="">Transaction History</a>
       <a href="">Profile</a>
     </div>
 
@@ -24,18 +24,17 @@
       <!TOP BAR>
       <div class="topnav">
         <!This is the sign up button, will add a connection later>
-      	<a href="" style="float: right;"> Sign Out</a>
+      	<a href="logout.php" style="float: right;"> Sign Out</a>
         <!Lauren: I don't know if the main menu button needs a dropdown menu with those links rn>
         <!This is the dropdown button with options, they connect to nowhere rn>
-      	<a href="" style="float: left;"> Account Settings</a>
+      	<a href="" style="float: left;"> Account Information</a>
       </div>
 
       <br>
       <div class = "row"><!Right Column>
         <div class = "rightcolumn">
           <div class= "account">
-            <p> Here we will put a bunch of links, one per line, and they navigate to some account settings like changing pin or password or something? </p>
-            <p>Unsure at this point, but recommend putting something in a column here</p>
+            <p> add a photo or a quote here </p>
           </div>
         </div>
 
@@ -43,18 +42,20 @@
           <div class = "account">
             <h1>Accounts</h1>
             <div class="topnav2">
-              <a href="" style="float: left;">Checkings</a>
+              <a href="checking.php" style="float: left;">Checkings</a>
               <a href="" style="float: left;">Savings</a>
-              <a href="" style="float: right;">Manage</a>
+              <a href="" style="float: left;">Custom Accounts</a>
+              <a href="deleteAccount.php" style="float: right;">Delete</a>
+              <a href="addAccount.php" style="float: right;">Add</a>
             </div>
           </div>
 
           <div class = "account">
             <h1>Transactions</h1>
             <div class="topnav2">
-              <a href="" style="float: left">Deposit</a>
-              <a href="" style="float: left;">Withdraw</a>
-              <a href="" style="float: left;">Transfer</a>
+              <a href="deposit.php" style="float: left">Deposit</a>
+              <! NOTE: withdrawals can only be done through the ATM. I removed the withdrawal link.>
+              <a href="transfer.php" style="float: left;">Transfer</a>
             </div>
           </div>
         </div>

@@ -80,20 +80,35 @@
     $results = mysqli_query($conn, $sql);
 
     if ($results) {
-
-        echo "Registered."; //As a toast message
-
+        $accounts = "SELECT * FROM accounts";
+        $initialize = mysqli_query($conn, $accounts);
+        /*BEGIN: initializing the checking and savings accounts*/
+        $sql2 = "INSERT INTO accounts (userID,  acctName, balance) VALUES
+                ('$userID','Savings','0')";//starting balance in each account it zero
+            $results2 = mysqli_query($conn, $sql2);
+            if ($results) {
+                  //$sql3 =  "INSERT INTO accounts (userID, acctName, balance) VALUES
+                        // ('$userID','Checking','0')";
+                        //$results3 = mysqli_query($conn, $sql);
+                        //if ($results3) {
+                              echo "Registered."; //As a toast message
+                            header('Location: /CMPE131PROJECT-master/login.php');
+                        //} else {
+                          // echo mysqli_error($conn);
+                          // echo "something";
+                          //}
+            } else {
+                echo mysqli_error($conn);
+                echo "something";
+              }
     } else {
         echo mysqli_error($conn);
       }
 
-      mysqli_close($conn); // close connection
-
-
     } else {
       echo "A field is empty."; //Also as a toast message
     }
-  } //else {
+} //else {
       //echo "Form was not submitted.";
     // }
     ?>

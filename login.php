@@ -34,13 +34,11 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                         else{
                               session_start();
                               $_SESSION['userID']= $row['userID'];
-
-                              echo("Session ID: " .$_SESSION['userID']);
                               $_SESSION['fname']= $row['fname'];
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-
+                              header('Location: /CMPE131PROJECT-master/test_userpage.php');
                         }
                   }
                   else{
@@ -59,21 +57,46 @@ else {
     <meta charset="utf-8">
     <title>Login</title>
 
-    <link rel="stylesheet" href="registerStyle.css">
+    <link rel="stylesheet" href="homepage.css">
 	<!At this point in time, I will be using the registerStyle for the login page as well>
-  </head>
-  <body>
-        <div class="header">
-         <!TOP BAR>
-         <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+</head>
+
+<body><!This is the login page>
+<!MENU BAR>
+<div id="mySidenav" class="sidenav">
+ <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+ <a href="">Checking Account</a>
+ <a href="">Savings Account</a>
+ <a href="">Investing</a>
+ <a href="">Better Money Habits</a>
+</div>
+
+<div id="main">
+
+ <div class="header">
+   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+   <!TOP BAR>
+   <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+</div>
+
+<div class="topnav">
+       <a class="active" href="homepage.php">Home</a>
+       <a href="homepage.php#news">News</a>
+       <a href="homepage.php#contact">Contact</a>
+       <a href="homepage.php#about">About</a>
+       <div class="header-right">
+          <a class="active" href="register.php">Register</a>
        </div>
-  <div id= "form">
+</div>
+<br>
+
+<div id= "form">
+ <h2>Login</h2>
     <form action = "login.php" method="post">
-	<! Login currently set to use username and password for login, may want to include email option>
             <input type= "text" name = "username" placeholder = "username/email">
-            <input type= "text" name = "password" placeholder = "pin">
+            <input type= "password" name = "password" placeholder = "pin">
       <button type = "submit" name= "login-submit">Login</button>
-	</form>
+      </form>
       <main>
             <?php
                   if(isset($_SESSION['username'])){
@@ -84,3 +107,5 @@ else {
                   }
             ?>
       </main>
+</div>
+</body>
