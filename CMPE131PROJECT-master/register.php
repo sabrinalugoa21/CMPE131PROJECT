@@ -82,7 +82,7 @@
     if ($results) {
 
         echo "Registered."; //As a toast message
-
+        header('Location: /CMPE131PROJECT-master/login.php');
     } else {
         echo mysqli_error($conn);
       }
