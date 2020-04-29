@@ -80,15 +80,29 @@
     $results = mysqli_query($conn, $sql);
 
     if ($results) {
+        $accounts = "SELECT * FROM accounts";
+        $initialize = mysqli_query($conn, $accounts);
+        /*BEGIN: initializing the checking and savings accounts*/
+        $sql2 = "INSERT INTO accounts (userID, acctName, balance) VALUES
+                ('$userid','Savings','0')";//starting balance in each account it zero
+        // echo $sql;
+        $results = mysqli_query($conn, $sql2);
+        if ($results) {
+           echo "Added."; //As a toast message
+           //we can output the account info after
+        } else {
+           echo mysqli_error($conn);
+           echo "something";
+          }
+        } else {
+          echo "A field is empty."; //Also as a toast message
+        }
 
         echo "Registered."; //As a toast message
         header('Location: /CMPE131PROJECT-master/login.php');
     } else {
         echo mysqli_error($conn);
       }
-
-      mysqli_close($conn); // close connection
-
 
     } else {
       echo "A field is empty."; //Also as a toast message
