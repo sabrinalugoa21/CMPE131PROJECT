@@ -62,6 +62,7 @@
     //$password = $_POST["password"]; //Commented out password just in case
     $pin = $_POST["pin"];
     $email = $_POST["email"];
+    //$acctnum = rand(100000,199999);
 
 
     //Create connection
@@ -75,9 +76,11 @@
     //Register user
     $sql = "INSERT INTO useraccounts (userID, fname, lname, username, /*password,*/ pin, email) VALUES
             ('$userID','$fname','$lname','$username','$pin','$email')";
+    $sql2 = "INSERT INTO bankaccount (userID) VALUES ('$userID')";
 
     // echo $sql;
     $results = mysqli_query($conn, $sql);
+    $results2 = mysqli_query($conn, $sql2);
 
     if ($results) {
         $accounts = "SELECT * FROM accounts";
