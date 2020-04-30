@@ -29,6 +29,7 @@
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
+        <a href="atmlogin.php">Find an ATM</a>
         <div class="header-right">
           <a class="active" href="login.php">Sign In</a>
         </div>
