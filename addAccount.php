@@ -1,7 +1,50 @@
+<html>
+<head> <!This is the title of the webpage>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bank Name</title>
+  <link rel="stylesheet" href="addAccount.css">
+</head>
+
+  <body>
+    <div class="header">
+      <!TOP BAR>
+      <a href="addAccount.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+    </div>
+
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+    </div>
+
+
+    <div class="center">
+        <form action = "addAccount.php" method="post">
+            <div class = "form-group">
+              <label for = "acctName"> account name: </label>
+              <input name = "acctName" type = "text">
+            </div>
+            <input type = "submit" name = "submit" id = "submit">
+       </form>
+
+       <main>
+             <?php
+                   if(isset($_SESSION['username'])){
+                         echo '<p>Logged IN</p>';
+                         echo("Session ID: " .$_SESSION['userID']);
+                   }
+                   else{
+                         echo '<p>Logged OUT</p>';
+                   }
+             ?>
+       </main>
+    </div>
+  </body>
+</html>
+
 <?php
   session_start();
   //connnect to localhost
-  $conn = mysqli_connect("localhost","root","","userbank");
+  $conn = mysqli_connect("localhost","root","","bankaccount");
   echo "connected! <br>";
   //check connection
   if(!$conn){
@@ -41,26 +84,3 @@
   mysqli_close($conn);
 /*END: ADD AN ACCOUNT*/
 ?>
-<html>
-  <body>
-    //ADD an ACCOUNT
-        <form action = "addAccount.php" method="post">
-            <div class = "form-group">
-              <label for = "acctName"> account name: </label>
-              <input name = "acctName" type = "text">
-            </div>
-            <input type = "submit" name = "submit" id = "submit">
-       </form>
-  </body>
-</html>
-<main>
-      <?php
-            if(isset($_SESSION['username'])){
-                  echo '<p>Logged IN</p>';
-                  echo("Session ID: " .$_SESSION['userID']);
-            }
-            else{
-                  echo '<p>Logged OUT</p>';
-            }
-      ?>
-</main>
