@@ -42,9 +42,10 @@
           <div class = "account">
             <h1>Accounts</h1>
             <div class="topnav2">
-              <a href="checking.php" style="float: left;">Checkings</a>
-              <a href="" style="float: left;">Savings</a>
-              <a href="" style="float: left;">Custom Accounts</a>
+              <a href="savings.php" style="float: left;">Savings</a>
+
+              <a href="customAccounts.php" style="float: left;">Custom Accounts</a>
+
               <a href="deleteAccount.php" style="float: right;">Delete</a>
               <a href="addAccount.php" style="float: right;">Add</a>
             </div>
@@ -54,7 +55,6 @@
             <h1>Transactions</h1>
             <div class="topnav2">
               <a href="deposit.php" style="float: left">Deposit</a>
-              <! NOTE: withdrawals can only be done through the ATM. I removed the withdrawal link.>
               <a href="transfer.php" style="float: left;">Transfer</a>
             </div>
           </div>

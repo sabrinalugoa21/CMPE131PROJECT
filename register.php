@@ -91,7 +91,7 @@
     if ($results) {
         echo "Registered."; //As a toast message
         $sql2 = "INSERT INTO accounts (userID, acctname, balance) VALUES
-                ('$userID','savings','0.00')"; //starting balance in each account is zero
+                ('$userID','Savings','0.00')"; //starting balance in each account is zero
             $results2 = mysqli_query($conn, $sql2);
         header('Location: login.php'); //Change location based on where project folder is saved.
       } else {

@@ -38,7 +38,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-                              header('Location: /CMPE131PROJECT-master/test_userpage.php');
+                              header('Location: /test_userpage.php');
                         }
                   }
                   else{
