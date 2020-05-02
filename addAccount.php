@@ -11,7 +11,6 @@
   //sql to list accounts
   $query = "SELECT * FROM accounts";
   $result1 = mysqli_query($conn, $query);
-  echo "hello";
 
 
 /*BEGIN: ADD AN ACCOUNT*/
@@ -52,6 +51,51 @@
             </div>
             <input type = "submit" name = "submit" id = "submit">
        </form>
+  </body>
+</html>
+
+
+<html>
+  <head> <!This is the title of the webpage>
+    <meta charset="utf-8">
+    <title>Deposit</title>
+    <link rel="stylesheet" href="deposit.css">
+  </head>
+
+  <body>  <!This is the title page>
+      <div class = "row">
+          <div id = "grad1", class = "header"><h1>
+           <p class = "custom1"> BANK NAME</p>
+         </h1></div>
+          <div id = ""
+      		<div class="topnav">
+      			<a href="" style="float: right;"> Sign Out</a>
+      			<a href="userpage2.php" style="float: left;"> Return</a>
+      				</div>
+      			</div>
+
+          <div class = "rightcolumn">
+                <div class= "account">
+                       <h2> Navigation </h2>
+                       <a href="userpage2.php" style="float: left;"> Home</a>
+                       <a href= "" style= "float: left;"> Account Settings</a>
+                       <a href= "" style= "float: left;"> </a>
+                </div>
+          </div>
+
+            <div class = "leftcolumn">
+                  <div class = "column">
+                        <h1> Register Account</h1>
+                        <form action = "addAccount.php" method="post">
+                          <div class = "form-group">
+                            <label for = "acctName"> account name: </label>
+                            <input name = "acctName" type = "text">
+                          </div>
+                          <input type = "submit" name = "submit" id = "submit">
+                        </form>
+                       </div>
+                  </div>
+
   </body>
 </html>
 <main>
