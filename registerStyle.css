@@ -162,17 +162,4 @@ input
   border-style: outset;
 }
 
-@media screen and (max-height: 450px) {
-  .column1 {
-    margin-left: 20px;
-    margin-right: 10px;
-    margin-top: auto;
-  }
-  .column2
-  {
-    margin-left: 20px;
-    margin-right: 10px;
-    margin-top: auto;
-  }
-  
 }
