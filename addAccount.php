@@ -11,6 +11,7 @@
   //sql to list accounts
   $query = "SELECT * FROM accounts";
   $result1 = mysqli_query($conn, $query);
+  echo "hello";
 
 
 /*BEGIN: ADD AN ACCOUNT*/
