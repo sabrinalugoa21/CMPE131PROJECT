@@ -1,45 +1,96 @@
-
 <?php
-     $conn = mysqli_connect("localhost","root","","userbank");
-    if(!$conn){
+  session_start();
+  //connnect to localhost
+  $conn = mysqli_connect("localhost","root","","userbank");
+  echo "connected! <br>";
+  //check connection
+  if(!$conn){
       die("Connection failed" . mysqli_connect_error());
-    }
+  }
 
-      //$userID = $_SESSION['userID'];
-if(isset($_POST['SubmitButton'])){
-      $userID = $_POST['userID'];
+  //sql to list accounts
 
-    $account = $_POST['accountNumber'];
-    //$pin = $_GET['pin'];
-    $balance = $_POST['amount'];
+  echo $_POST["acctName"];
+  $initial = $_POST["acctName"];
+//   echo "initial balance";
+  $query = "SELECT * FROM accounts WHERE acctName = $initial";
+  $result1 = mysqli_query($conn, $query);
+  if($result1){
+      echo " ";
+  }
+  else{
+      echo "something is wrong";
+  }
+  while($row=mysqli_fetch_assoc($result1)) {
+    print_r($row["balance"]);
+    echo "-";
+    print_r($row["acctName"]);
+    // echo "hello";
+    echo "<br>";
+    $money = $row["balance"];
+    } 
+    echo $money;
+    echo "this is the money in the database";
 
-    //finds the balance from the database
-    $balanceQuery = "SELECT balance FROM accounts WHERE userID='$userID' AND acctNum = '$account'";
-
-    $result = $conn->query($balanceQuery);
-    $row = $result->fetch_assoc();
-
-    $currentBalance = $row["balance"];
-
-    echo ("Starting balance is $" .$currentBalance);
-
-    $finalBalance = $currentBalance - $balance;
-     echo ("<p>Final balance is $" .$finalBalance);
-
-     $sql = "UPDATE accounts SET balance = $finalBalance WHERE userID='$userID' AND acctNum = '$account'" ;
-    //echo $sql;
-    $result = mysqli_query($conn, $sql);
-    if($result){
-        echo "The data has been added correctly";
+    $withdrawMoney = $_POST["balance"];
+    echo $withdrawMoney;
+    echo "money to withdraw";
+    echo "<br>";
+    $final = $money - $withdrawMoney;
+    echo $final;
+    echo "this is the final amount after transaction";
+    $newSQL = "UPDATE accounts SET balance = $final WHERE acctName = '$initial'";
+    echo $newSQL;
+    echo "<br>";
+    $mysql = mysqli_query($conn,$newSQL);
+    if($mysql){
+      echo "added";
     }
     else{
-        echo mysqli_error($conn);
-        echo "THERE IS AN ERROR";
+      echo mysqli_error($conn);
+      echo " something 1";
     }
-    mysqli_close($conn);
-}
-
+    
+// /*BEGIN: ADD AN ACCOUNT*/
+  
+//     $userid = $_SESSION['userID'];
+//     $acctname= $_POST['acctName'];
+//     $balance = $_POST['balance'];
+//     echo $balance;
+//     echo $acctname;
+//  //expand random number range if needed
+//     //Register user
+//     $sql = "INSERT INTO accounts (userID, acctName, balance) VALUES
+//             ('$userid','$acctname','$balance')";//starting balance in each account it zero
+//     // echo $sql;
+//     $results = mysqli_query($conn, $sql);
+//     if ($results) {
+//         echo "Added."; //As a toast message
+//         //we can output the account info after
+//     } else {
+//         echo mysqli_error($conn);
+//         echo "something 1";
+//       }
+   
+//   // Close connection
+//   mysqli_close($conn);
+// /*END: ADD AN ACCOUNT*/
 ?>
+<html>
+  <body>
+    //ADD an ACCOUNT
+        <!-- <form action = "addAccount.php" method="post">
+            <div class = "form-group">
+              <label for = "acctName"> account name: </label>
+              <input name = "acctName" type = "text">
+
+            </div>
+            <input type = "submit" name = "submit" id = "submit">
+       </form> -->
+  </body>
+</html>
+
+
 <html>
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
@@ -70,29 +121,30 @@ if(isset($_POST['SubmitButton'])){
 
             <div class = "leftcolumn">
                   <div class = "column">
-                        <h1> Deposit to Account</h1>
-                        <form action="" method="post">
-                        <p>User #: <input type="text" name = "userID"> </p>
-                        <p>Account #: <input type="text" name = "accountNumber"> </p>
-                        <p>Amount to withdraw($): <input type="text" name = "amount"> </p>
-                        <input type="submit" name = "SubmitButton">
-                      </form>
+                        <h1> Register Account</h1>
+                        <form action = "withdraw.php" method="post">
+                          <div class = "form-group">
+                            <label for = "acctName"> account name: </label>
+                            <input name = "acctName" type = "text">
 
-                        <?php echo $message; ?>
+                            <label for = "balance"> initial balance: </label>
+                            <input name = "balance" type = "number">
+                          </div>
+                          <input type = "submit" name = "submit" id = "submit">
+                        </form>
                        </div>
                   </div>
 
   </body>
 </html>
-
-<!-- <html>
-<body>
-<form action="" method="post">
-      <p>User #: <input type="text" name = "userID"> </p>
-    <p>Account #: <input type="text" name = "accountNumber"> </p>
-    <p>Amount to withdraw($): <input type="text" name = "amount"> </p>
-    <input type="submit" name = "SubmitButton">
-    </form>
-</form>
-</body>
-</html> -->
+<main>
+      <?php
+            if(isset($_SESSION['username'])){
+                  echo '<p>Logged IN</p>';
+                  echo("Session ID: " .$_SESSION['userID']);
+            }
+            else{
+                  echo '<p>Logged OUT</p>';
+            }
+      ?>
+</main>
