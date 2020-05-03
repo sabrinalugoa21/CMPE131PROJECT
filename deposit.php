@@ -9,18 +9,20 @@
   }
 
     $userID = $_SESSION['userID'];
-
+//$userID =167053; //was using this line for testing (to avoid having to log in)
 $message = "";
+
+$form = "SELECT * FROM accounts WHERE userID='$userID'";
+$formresult = mysqli_query($conn, $form);
 
 if(isset($_POST['SubmitButton'])){ //check if form was submitted
         $amount = $_POST['amount']; //get input text
         $account = $_POST['account'];
 
 
-        $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID'" ;
+        $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
         $result = $conn->query($sql);
-
-            $row = $result->fetch_assoc();
+            $row = mysqli_fetch_assoc($result);
 
             $acctNum = $row["acctNum"];
             $balance = $row["balance"];
@@ -73,7 +75,12 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                   <div class = "column">
                         <h1> Deposit to Account</h1>
                         <form action="" method="post">
-                          <p>Account name: <input type="text" name = "account"> </p>
+                              <p> Account name: <select id="account" name="account">
+                              <?php
+                                        while($row1 = $formresult->fetch_assoc()):;?>
+                                        <option value="<?php echo $row1["acctName"];?>"><?php echo $row1["acctName"];?></option>
+                                  <?php endwhile;?>
+                                </select></p>
                           <p>Amount ($): <input type="text" name = "amount"> </p>
                           <input type="submit" name = "SubmitButton">
                         </form>
