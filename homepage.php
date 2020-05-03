@@ -35,7 +35,7 @@
       </div>
       <br>
 
-      <!-- <!Register>
+      <!Register>
       <div class = "section">
         <div class = "row">
           <div class="leftcolumn">
@@ -53,7 +53,6 @@
 
       <br> -->
 
-      <!-- <!something else>
       <div class = "section">
         <div class="row">
           <div class="leftcolumn">
@@ -67,9 +66,9 @@
             <img src="money.jpg" alt="Image 2" style="border-radius:50%">
           </div>
         </div>
-      </div> -->
+      </div> 
 
-      <!-- <!Testemonials>
+       <!Testemonials>
       <br>
       <div class = "section">
         <br>
@@ -98,9 +97,9 @@
           <span class="dot" onclick="currentSlide(1)"></span>
           <span class="dot" onclick="currentSlide(2)"></span>
           <span class="dot" onclick="currentSlide(3)"></span>
-        </div> -->
+        </div> 
 
-        <!-- <script>
+         <script>
           var slideIndex = 1;
           showSlides(slideIndex);
 
@@ -127,26 +126,9 @@
             slides[slideIndex-1].style.display = "block";
             dots[slideIndex-1].className += " active";
           }
-        </script> -->
+        </script>
 
-        <div class = "leftcolumn">
-                  <div class = "account">
-                        <h1> Accounts</h1>
-                        <div class="topnav2">
-                             <a href="add-account.php" style="float: left;">Add an Account</a>
-                             <a href="delete-account.php" style="float: left;">Delete an Account</a>
-                       </div>
-                  </div>
-                  
-                <div class = "account">
-                      <h1> Transactions</h1>
-                      <div class="topnav2">
-                           <a href="withdraw.php" style="float: left;">Withdraw</a>
-                            <a href="deposit.php" style="float: left;">Deposit</a>
-
-                     </div>
-                </div>
-            </div>
+        
 
         <br>
       </div>
