@@ -28,7 +28,7 @@
 <div class="topnav">
        <a class="active" href="homepage.php">Home</a>
        <a href="deposit.php">Deposit</a>
-       <a href="withdraw.php">Withdraw</a>
+       <a href="withdraw2.php">Withdraw</a>
 </div>
 <br>
 <div class="">
