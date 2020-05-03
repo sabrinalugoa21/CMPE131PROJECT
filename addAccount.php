@@ -33,7 +33,7 @@
         //we can output the account info after
     } else {
         echo mysqli_error($conn);
-        echo "something";
+        echo "something 1";
       }
     } else {
       echo "A field is empty."; //Also as a toast message
