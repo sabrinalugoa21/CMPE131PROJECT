@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="registerStyle.css">
   </head>
   <body>
-    <h1>Registeration</h1>
+    <h1>Registration</h1>
     <div class = "column1">
     <img src ="savePig.jpg" alt = "save money!" id = "box1">
     <p id = "box2">[INCENTIVE INSERT HERE]</p>
@@ -33,14 +33,14 @@
         <input name = "username" type = "text">
       </div>
         <div class = "form-group">
-          <label for = "Pin"> Pin: </label>
-          <input name = "pin" type = "text">
+          <label for = "Pin"> PIN: </label>
+          <input name = "pin" type = "password">
         </div>
 
-      <div class = "form-group">
+      <!--div class = "form-group">
         <label for ="Password">Password: </label>
         <input type ="password" name="password">
-      </div>
+      </div-->
       <div class = "form-group">
         <label for = "Email"> Email: </label>
         <input name = "email" type = "text">
@@ -51,16 +51,18 @@
 </div>
 <?php
   if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["username"])
-      && isset($_POST["password"]) && isset($_POST["email"])){
-    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && $_POST["password"]
+      /*&& isset($_POST["password"])*/ && isset($_POST["pin"]) && isset($_POST["email"])){
+    if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && /*$_POST["password"] &&*/ $_POST["pin"]
         && $_POST["email"]){
 
+    $userID = rand(100000,199999); //expand random number range if needed
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    //$password = $_POST["password"]; //Commented out password just in case
+    $pin = $_POST["pin"];
     $email = $_POST["email"];
-    $acctnum = rand(100000,199999); //expand random number range if needed
+    //$acctnum = rand(100000,199999);
 
 
     //Create connection
@@ -72,29 +74,42 @@
     }
 
     //Register user
-    $sql = "INSERT INTO bankaccount (fname, lname, username, password, email, acctnum) VALUES
-            ('$fname','$lname','$username','$password','$email','$acctnum')";
+    $sql = "INSERT INTO useraccounts (userID, fname, lname, username, /*password,*/ pin, email) VALUES
+            ('$userID','$fname','$lname','$username','$pin','$email')";
+    //$sql2 = "INSERT INTO accounts (userID) VALUES ('$userID')";
+
 
     // echo $sql;
     $results = mysqli_query($conn, $sql);
 
+
+    /*if ($results) {
+        $accounts = "SELECT * FROM accounts";
+        $initialize = mysqli_query($conn, $accounts);
+        /*BEGIN: initializing the checking and savings accounts*/
+
     if ($results) {
-
         echo "Registered."; //As a toast message
+        $sql2 = "INSERT INTO accounts (userID, acctname, balance) VALUES
+                ('$userID','Savings','0.00')"; //starting balance in each account is zero
+            $results2 = mysqli_query($conn, $sql2);
+        header('Location: login.php'); //Change location based on where project folder is saved.
+      } else {
+      echo mysqli_error($conn);
+      echo "Error.";
+    }
 
-    } else {
-        echo mysqli_error($conn);
-      }
-
-      mysqli_close($conn); // close connection
-
+          mysqli_close($conn);
 
     } else {
       echo "A field is empty."; //Also as a toast message
     }
-  } //else {
-      //echo "Form was not submitted.";
-    // }
+  }
+
+
+    /*else {
+      echo "Form was not submitted.";
+    }*/
     ?>
   </body>
 </html>

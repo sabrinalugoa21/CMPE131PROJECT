@@ -38,7 +38,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-                              header('Location: /test_userpage.php');
+                              header('Location: /CMPE131PROJECT-master/test_userpage.php');
                         }
                   }
                   else{
@@ -48,7 +48,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
       }
 }
 else {
-      echo "A field is empty."; //will remove this once I figure some stuff out
+      //echo "A field is empty."; //will remove this once I figure some stuff out
 }
 ?>
 
@@ -57,7 +57,7 @@ else {
     <meta charset="utf-8">
     <title>Login</title>
 
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="atm.css">
 	<!At this point in time, I will be using the registerStyle for the login page as well>
 </head>
 
@@ -76,14 +76,13 @@ else {
  <div class="header">
    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
    <!TOP BAR>
-   <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+   <a href="homepage.php", class="logo", style="color: #FFFFE0">ATM</a>
 </div>
 
 <div class="topnav">
        <a class="active" href="homepage.php">Home</a>
-       <a href="homepage.php#news">News</a>
-       <a href="homepage.php#contact">Contact</a>
-       <a href="homepage.php#about">About</a>
+       <a href="deposit.php">Deposit</a>
+       <a href="withdraw.php">Withdraw</a>
        <div class="header-right">
           <a class="active" href="register.php">Register</a>
        </div>
