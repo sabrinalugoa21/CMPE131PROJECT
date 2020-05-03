@@ -56,16 +56,16 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
           <div id = ""
       		<div class="topnav">
       			<a href="" style="float: right;"> Sign Out</a>
-      			<a href="userpage2.php" style="float: left;"> Return</a>
+      			<a href="test_userpage.php" style="float: left;"> Return</a>
       				</div>
       			</div>
 
           <div class = "rightcolumn">
                 <div class= "account">
                        <h2> Navigation </h2>
-                       <a href="userpage2.php" style="float: left;"> Home</a>
-                       <a href= "" style= "float: left;"> Account Settings</a>
-                       <a href= "" style= "float: left;"> </a>
+                       <a href="test_userpage.php" style="float: left;"> Home</a>
+                       <a href= "test_userpage.php" style= "float: left;"> Account Settings</a>
+                       <a href= "test_userpage.php" style= "float: left;"> </a>
                 </div>
           </div>
 

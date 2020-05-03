@@ -1,7 +1,7 @@
 <html>
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
-    <title>Bank Name</title>
+    <title>SJSU Bank</title>
     <link rel="stylesheet" href="test_userpage.css">
   </head>
 
@@ -18,7 +18,7 @@
       <!Header>
       <div class="header">
         <span style="float:left",style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
-        <h1 class="logo">Bank Name</h1>
+        <h1 class="logo">SJSU Bank</h1>
       </div>
 
       <!TOP BAR>
@@ -56,6 +56,8 @@
             <div class="topnav2">
               <a href="deposit.php" style="float: left">Deposit</a>
               <a href="transfer.php" style="float: left;">Transfer</a>
+              <a href="withdraw.php" style="float: left;">Withdraw</a>
+
             </div>
           </div>
         </div>
