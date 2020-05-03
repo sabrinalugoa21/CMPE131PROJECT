@@ -20,10 +20,12 @@
     {
     $userid = $_SESSION['userID'];
     $acctname= $_POST['acctName'];
+    $balance = $_POST['balance'];
+    echo $balance;
  //expand random number range if needed
     //Register user
     $sql = "INSERT INTO accounts (userID, acctName, balance) VALUES
-            ('$userid','$acctname','0')";//starting balance in each account it zero
+            ('$userid','$acctname','$balance')";//starting balance in each account it zero
     // echo $sql;
     $results = mysqli_query($conn, $sql);
     if ($results) {
@@ -44,13 +46,14 @@
 <html>
   <body>
     //ADD an ACCOUNT
-        <form action = "addAccount.php" method="post">
+        <!-- <form action = "addAccount.php" method="post">
             <div class = "form-group">
               <label for = "acctName"> account name: </label>
               <input name = "acctName" type = "text">
+
             </div>
             <input type = "submit" name = "submit" id = "submit">
-       </form>
+       </form> -->
   </body>
 </html>
 
@@ -90,6 +93,9 @@
                           <div class = "form-group">
                             <label for = "acctName"> account name: </label>
                             <input name = "acctName" type = "text">
+
+                            <label for = "balance"> initial balance: </label>
+                            <input name = "balance" type = "number">
                           </div>
                           <input type = "submit" name = "submit" id = "submit">
                         </form>
