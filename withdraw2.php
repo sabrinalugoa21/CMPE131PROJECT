@@ -66,7 +66,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                         <div class = "rightcolumn">
                              <div class= "account">
                                     <h2> Navigation </h2>
-                                    <p><a href="test_userpage.php">Return to ATM</a></p>
+                                    <p><a href="atm.php">Return to ATM</a></p>
                              </div>
                        </div>
 
