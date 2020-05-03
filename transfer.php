@@ -33,7 +33,7 @@
           $acctname = $row1['acctname'];
           $acctnum = $row2['acctnum'];
           echo "<option value = '$acctname'>$acctname</option>";
-          echo"<option value = '$acctnum'>$acctnum</>"
+          echo"<option value = '$acctnum'>$acctnum</>";
         }
 
       ?>
