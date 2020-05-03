@@ -1,47 +1,33 @@
-<html>
-<body>
-<form>
-    <p>Account #: <input type="number" name = "accountNumber"> </p>
-    <p>PIN #: <input type="number" name = "pin"> </p>
-    <p>Amount to withdraw($): <input type="number" name = "amount"> </p>
-    <input type="submit">
-</form>
-</body>
-</html>
 
 <?php
-
-    $conn = mysqli_connect("localhost", "root", "", "users");
-    if(!'conn'){
-        die("connection failed");
+     $conn = mysqli_connect("localhost","root","","userbank");
+    if(!$conn){
+      die("Connection failed" . mysqli_connect_error());
     }
-    // echo $_GET["account"];
-    // echo $_GET["pin"];
-    $account = $_GET['accountNumber'];
-    $pin = $_GET['pin'];
-    $balance = $_GET['amount'];
+
+      //$userID = $_SESSION['userID'];
+if(isset($_POST['SubmitButton'])){
+      $userID = $_POST['userID'];
+
+    $account = $_POST['accountNumber'];
+    //$pin = $_GET['pin'];
+    $balance = $_POST['amount'];
 
     //finds the balance from the database
-    $balanceQuery = "SELECT accountBalance FROM bankAccount WHERE accountNumber = $account";
-    $dbBalance_ = mysqli_query($conn,$balanceQuery);
-    $resultCheck = mysqli_num_rows($dbBalance_);
-    while($row = mysqli_fetch_assoc($dbBalance_) ){
-        // echo $row['accountBalance'];
-        // echo "accountBalance";
-        // echo $balance;
-        // echo "balance";
-        $temp = $row['accountBalance'];
-    }
-    echo $temp;
-    echo " ";
-    echo $balance;
-    echo " ";
-    $finalBalance = $temp - $balance;
-    echo $finalBalance;
-    echo "finalbalance ";
+    $balanceQuery = "SELECT balance FROM accounts WHERE userID='$userID' AND acctNum = '$account'";
 
-    $sql = "UPDATE bankAccount SET accountBalance = $finalBalance WHERE accountNumber = $account" ;
-    echo $sql;
+    $result = $conn->query($balanceQuery);
+    $row = $result->fetch_assoc();
+
+    $currentBalance = $row["balance"];
+
+    echo ("Starting balance is $" .$currentBalance);
+
+    $finalBalance = $currentBalance - $balance;
+     echo ("<p>Final balance is $" .$finalBalance);
+
+     $sql = "UPDATE accounts SET balance = $finalBalance WHERE userID='$userID' AND acctNum = '$account'" ;
+    //echo $sql;
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "The data has been added correctly";
@@ -51,15 +37,18 @@
         echo "THERE IS AN ERROR";
     }
     mysqli_close($conn);
-    // mysqli_query($conn,$sql);
-    // $records = mysqli_query($conn,$sql);
-    // while($row = mysqli_fetch_array($records) ){
-    //     echo "<tr>";
-    //     echo "<td>".$row['username']."</td>";
-    //     echo " password ";
-    //     echo "<td>".$row['password']."</td>";
-    //     echo "<br/>";
-    // }
+}
 
 ?>
-   
+
+<html>
+<body>
+<form action="" method="post">
+      <p>User #: <input type="text" name = "userID"> </p>
+    <p>Account #: <input type="text" name = "accountNumber"> </p>
+    <p>Amount to withdraw($): <input type="text" name = "amount"> </p>
+    <input type="submit" name = "SubmitButton">
+    </form>
+</form>
+</body>
+</html>
