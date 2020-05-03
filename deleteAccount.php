@@ -15,8 +15,6 @@
       if(!$conn){
           die("Connection failed" . mysqli_connect_error());
       }
-      if (isset($_POST["userID"]))
-      {
       $userid = $_SESSION['userID'];
       //select $query
       echo "Accounts whose balance is zero are only displayed<br>";
@@ -42,7 +40,6 @@
           echo mysqli_error($conn);
           echo "something";
         }
-      }
     ?>
   </table>
 
