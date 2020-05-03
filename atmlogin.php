@@ -38,7 +38,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-                              header('Location: /CMPE131PROJECT-master/test_userpage.php');
+                              header('Location: /test_userpage.php');
                         }
                   }
                   else{
@@ -51,7 +51,7 @@ else {
       //echo "A field is empty."; //will remove this once I figure some stuff out
 }
 ?>
-
+<!In the case that the whole thing isn't filled out. ^ ???>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -83,15 +83,12 @@ else {
        <a class="active" href="homepage.php">Home</a>
        <a href="deposit.php">Deposit</a>
        <a href="withdraw.php">Withdraw</a>
-       <div class="header-right">
-          <a class="active" href="register.php">Register</a>
-       </div>
 </div>
 <br>
 
 <div id= "form">
  <h2>Login</h2>
-    <form action = "login.php" method="post">
+    <form action = "/atm.php" method="post">
             <input type= "text" name = "username" placeholder = "username/email">
             <input type= "password" name = "password" placeholder = "pin">
       <button type = "submit" name= "login-submit">Login</button>

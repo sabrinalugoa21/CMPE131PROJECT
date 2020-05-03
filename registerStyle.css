@@ -162,6 +162,8 @@ input
   border-style: outset;
 }
 
+<<<<<<< HEAD
+=======
 @media screen and (max-height: 450px) {
   .column1 {
     margin-left: 20px;
@@ -175,4 +177,5 @@ input
     margin-top: auto;
   }
 
+>>>>>>> 52a844dc16b96b370d1c54d6ddf47dad911eefe3
 }
