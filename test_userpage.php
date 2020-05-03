@@ -42,9 +42,9 @@
           <div class = "account">
             <h1>Accounts</h1>
             <div class="topnav2">
-              <a href="savings.php" style="float: left;">Savings</a>
+              <!Deleted link to savings because ALL accounts are displayed on the link below>
 
-              <a href="customAccounts.php" style="float: left;">Custom Accounts</a>
+              <a href="customAccounts.php" style="float: left;">View Accounts</a>
 
               <a href="deleteAccount.php" style="float: right;">Delete</a>
               <a href="addAccount.php" style="float: right;">Add</a>
@@ -56,8 +56,6 @@
             <div class="topnav2">
               <a href="deposit.php" style="float: left">Deposit</a>
               <a href="transfer.php" style="float: left;">Transfer</a>
-              <a href="withdraw.php" style="float: left;">Withdraw</a>
-
             </div>
           </div>
         </div>

@@ -38,8 +38,8 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                  echo "Error updating record: " . $conn->error;
              }
 
-  $finalbalance = $row["balance"];
-  $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $$finalbalance.";
+  //$finalbalance = $row["balance"];
+  $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $newbalance.";
 }
 
   // Close connection
@@ -75,7 +75,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                        <p>--</p>
                        <p><a href= "transfer.php">Transfer Cash</a></p>
                        <p>--</p>
-                       <p><a href= "addAccount.php"> View Accounts</a></p>
+                       <p><a href= "customAccounts.php"> View Accounts</a></p>
                        <p><a href= "addAccount.php"> Add Accounts</a></p>
                        <p><a href= "deleteAccount.php"> Delete Accounts</a></p>
                 </div>

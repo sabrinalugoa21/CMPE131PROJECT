@@ -59,8 +59,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
          </h1></div>
           <div id = ""
       		<div class="topnav">
-      			<a href="" style="float: right;"> Sign Out</a>
-      			<a href="userpage2.php" style="float: left;"> Return</a>
+      			<a href="logout.php" style="float: right;"> Sign Out</a>
       				</div>
       			</div>
 
