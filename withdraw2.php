@@ -8,8 +8,8 @@
       die("Connection failed" . mysqli_connect_error());
   }
 /*ACCOUNT SELECTION MENU*/
-    $userID = $_SESSION['userID'];
-//$userID =167053; //was using this line for testing (to avoid having to log in)
+    //$userID = $_SESSION['userID'];
+$userID =167053; //was using this line for testing (to avoid having to log in)
 $message = "";
 
 $form = "SELECT * FROM accounts WHERE userID='$userID'";
@@ -83,7 +83,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                                   /*ACCOUNT SELECTION END*/
                                   ?>
                                 </select></p>
-                        <p>Amount to withdraw($): <input type="text" name = "amount"> </p>
+                        <p>Amount to withdraw($): <input type="text" name = "amount" required> </p>
                         <input type="submit" name = "SubmitButton">
                       </form>
 
