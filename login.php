@@ -2,6 +2,13 @@
 $errorMessage = "";
 if (isset($_POST["username"]) && isset($_POST["password"])){
 
+      //if someone is already logged in, automatically log them out
+      if(isset($_SESSION['username'])){
+            session_start();
+            session_unset();
+            session_destroy();
+      }
+
       $conn = mysqli_connect("localhost", "root", "", "userbank");
 
       if(!$conn){

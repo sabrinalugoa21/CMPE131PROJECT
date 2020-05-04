@@ -66,7 +66,7 @@
                                     echo "<table id=customers><tr><th>Account Number</th><th>Account Name</th></th><th>Balance</th></tr>";
                                     // output data of each row
                                     while($row = $tableresult->fetch_assoc()) {
-                                        echo "<tr><td>".$row["acctNum"]."</td><td>".$row["acctName"]."</td><td>".$row["balance"]."</td></tr>";
+                                        echo "<tr><td>".$row["acctNum"]."</td><td>".$row["acctName"]."</td><td>$".$row["balance"]."</td></tr>";
                                     }
                                     echo "</table>";
                                 } else {

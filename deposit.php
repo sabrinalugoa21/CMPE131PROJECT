@@ -39,7 +39,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
              }
 
   //$finalbalance = $row["balance"];
-  $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $newbalance.";
+  $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $$newbalance.";
 }
 
   // Close connection
@@ -95,7 +95,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                                   ?>
                                 </select></p>
                           <p>Amount ($): <input type="text" name = "amount"> </p>
-                          <input type="submit" name = "SubmitButton">
+                          <button type = "submit" name = "SubmitButton"> Deposit </button>
                         </form>
                         <?php
                               echo $message;
