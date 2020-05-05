@@ -64,7 +64,7 @@
         <label for = "Email"> Email: </label>
         <input name = "email" type = "text">
       </div>
-          <p><button type = "submit" name= "login-submit">Submit</button></p>
+          <p><button type = "submit" name= "login-submit">Register</button></p>
    </form>
 
   </div>
