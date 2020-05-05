@@ -332,4 +332,39 @@
   }
 /*END: SlideShow*/
 
+/*BEGIN: Login Form*/
+.loginform{
+      box-sizing: border-box;
+  margin-left: 30%;
+  margin-right: 5%;
+  background: #FFFFE0;
+
+  text-align: center;
+
+  float: left;
+  padding:20px;
+  width: 40%;
+  height: 55%;
+}
+
+input {
+      font-family:Georgia;
+      font-size: 16px;
+      width: 100%;
+      height: 30px;
+      padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+}
+
+button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+/*END: Login Form*/
 </style>

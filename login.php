@@ -1,5 +1,13 @@
 <?php
+$errorMessage = "";
 if (isset($_POST["username"]) && isset($_POST["password"])){
+
+      //if someone is already logged in, automatically log them out
+      if(isset($_SESSION['username'])){
+            session_start();
+            session_unset();
+            session_destroy();
+      }
 
       $conn = mysqli_connect("localhost", "root", "", "userbank");
 
@@ -27,9 +35,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 
                   if ($row = mysqli_fetch_assoc($result)){
                         $pwdCheck = password_verify($pin, $row['pin']);
-                        echo ( 'Pin: '.$row['pin'] );
                         if(!($pin == $row['pin'])){
-                              echo "password check error";
+                              $errorMessage = "<b>Error:</b> Sign in failed. Incorrect username or password.";
                         }
                         else{
                               session_start();
@@ -48,7 +55,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
       }
 }
 else {
-      echo "A field is empty."; //will remove this once I figure some stuff out
+      echo ""; //will remove this once I figure some stuff out
 }
 ?>
 
@@ -90,22 +97,27 @@ else {
 </div>
 <br>
 
-<div id= "form">
- <h2>Login</h2>
-    <form action = "login.php" method="post">
-            <input type= "text" name = "username" placeholder = "username/email">
-            <input type= "password" name = "password" placeholder = "pin">
-      <button type = "submit" name= "login-submit">Login</button>
-      </form>
-      <main>
-            <?php
-                  if(isset($_SESSION['username'])){
-                        echo '<p>Logged IN</p>';
-                  }
-                  else{
-                        echo '<p>Logged OUT</p>';
-                  }
-            ?>
-      </main>
-</div>
+
+      <div class = "row">
+                  <div class= "loginform">
+                         <h2>Login</h2>
+                              <p style = "color: red; text-align: center;" ><?php echo $errorMessage ?></p>
+                            <form action = "login.php" method="post">
+                                    <p><input type= "text" name = "username" placeholder = "username" required></p>
+                                    <p><input type= "password" name = "password" placeholder = "pin" required></p>
+                              <p><button type = "submit" name= "login-submit">Login</button></p>
+                              </form>
+                              <main>
+                                    <?php
+                                          if(isset($_SESSION['username'])){
+                                                echo '<p>Logged IN</p>';
+                                          }
+                                          else{
+                                                echo '<p style= "text-align: center;">Don\'t have an account yet? ';
+                                                echo '<a href="register.php">Register here.</a></p>';
+                                          }
+                                    ?>
+                              </main>
+                        </div>
+            </div>
 </body>

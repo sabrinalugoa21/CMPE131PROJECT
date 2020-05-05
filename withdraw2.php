@@ -8,7 +8,7 @@
       die("Connection failed" . mysqli_connect_error());
   }
 /*ACCOUNT SELECTION MENU*/
-    $userID = $_SESSION['userID'];
+ $userID = $_SESSION['userID'];
 //$userID =167053; //was using this line for testing (to avoid having to log in)
 $message = "";
 
@@ -28,62 +28,51 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
             $acctNum = $row["acctNum"];
             $balance = $row["balance"];
 
-        $newbalance = $balance + $amount;
+            $newbalance = $balance - $amount;
 
-        $sql2 = "UPDATE accounts SET balance='$newbalance' WHERE userID='$userID'AND acctName = '$account'" ;
+            $sql2 = "UPDATE accounts SET balance='$newbalance' WHERE userID='$userID'AND acctName = '$account'" ;
 
-              if ($conn->query($sql2) === TRUE) {
-                 //echo "Record updated successfully"; //commented out so user does not see this
-             } else {
-                 echo "Error updating record: " . $conn->error;
-             }
+                  if ($conn->query($sql2) === TRUE) {
+                     //echo "Record updated successfully"; //commented out so user does not see this
+                 } else {
+                     echo "Error updating record: " . $conn->error;
+                 }
 
-  //$finalbalance = $row["balance"];
-  $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $$newbalance.";
-}
+        //$finalbalance = $row["balance"];
+        $message = "<p>Success! You withdrew $$amount from $account.</p> <p>Your new balance is $$newbalance.";
+        }
 
-  // Close connection
-  mysqli_close($conn);
+    mysqli_close($conn);
+
 ?>
-
 <html>
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
-    <title>Deposit</title>
+    <title>Withdraw</title>
     <link rel="stylesheet" href="deposit.css">
   </head>
 
   <body>  <!This is the title page>
       <div class = "row">
           <div id = "grad1", class = "header"><h1>
-           <p class = "custom1"> SJSU BANK</p>
+           <p class = "custom1">SJSU Bank</p>
          </h1></div>
           <div id = ""
       		<div class="topnav">
       			<a href="logout.php" style="float: right;"> Sign Out</a>
-      			<a href="test_userpage.php" style="float: left;"> Return to Home</a>
-                        <a href= "customAccounts.php" style="float: left;"> View Accounts</a>
-                        <a href= "addAccount.php" style="float: left;"> Add Accounts</a>
-                        <a href= "deleteAccount.php" style="float: left;"> Delete Accounts</a>
       				</div>
       			</div>
 
-          <div class = "rightcolumn">
-                <div class= "account">
-                       <h2> Navigation </h2>
-                       <p><a href="test_userpage.php">Return to Home</a></p>
-                       <p>--</p>
-                       <p><a href= "transfer.php">Transfer Cash</a></p>
-                       <p>--</p>
-                       <p><a href= "customAccounts.php"> View Accounts</a></p>
-                       <p><a href= "addAccount.php"> Add Accounts</a></p>
-                       <p><a href= "deleteAccount.php"> Delete Accounts</a></p>
-                </div>
-          </div>
+                        <div class = "rightcolumn">
+                             <div class= "account">
+                                    <h2> Navigation </h2>
+                                    <p><a href="atm.php">Return to ATM</a></p>
+                             </div>
+                       </div>
 
             <div class = "leftcolumn">
                   <div class = "column">
-                        <h1> Deposit to Account</h1>
+                        <h1>Withdraw from Account</h1>
                         <form action="" method="post">
                               <p> Account name: <select id="account" name="account">
                               <?php
@@ -94,12 +83,11 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                                   /*ACCOUNT SELECTION END*/
                                   ?>
                                 </select></p>
-                          <p>Amount ($): <input type="text" name = "amount"> </p>
-                          <button type = "submit" name = "SubmitButton"> Deposit </button>
-                        </form>
-                        <?php
-                              echo $message;
-                          ?>
+                        <p>Amount to withdraw($): <input type="text" name = "amount" required> </p>
+                        <button type = "submit" name = "SubmitButton"> Withdraw </button>
+                      </form>
+
+                        <?php echo $message; ?>
                        </div>
                   </div>
 
