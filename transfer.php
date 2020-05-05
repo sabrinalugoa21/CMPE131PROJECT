@@ -2,10 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>transfer</title>
+    <title>Transfer</title>
+    <link rel="stylesheet" href="transferstyle.css">
   </head>
-  <body>
-    <h1>Transfer</h1>
+  <body style = "background-color: #00cc66;">
+    <p class= 'heading'>Transfer</p>
     <?php
       session_start();
 
@@ -19,41 +20,39 @@
       $userID = 101010;
     ?>
 
-    <div class="custom-select" style="width:200px;">
-    <form action = "" method = post>
-    <p class="title">Transfer from:
-    <select name = "account1">
-      <?php
-        $result1 = mysqli_query($conn, "SELECT acctname from bankaccounts WHERE userID = '$userID'");
-        // $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
+    <div class="custom-select">
+      <form action = "" method = post>
+        <p class="titleSize" id= "transfer">Transfer from:
+          <select name = "account1">
+            <option value=''></option>
+            <?php
+              $result1 = mysqli_query($conn, "SELECT acctname from bankaccounts WHERE userID = '$userID'");
+              // $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
 
-        while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc()?>
-          <option value= "<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?></option>
-          <?php endwhile;?>
-    </select></p>
-    </div>
+              while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc()?>
+                <option value= "<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?></option>
+                <?php endwhile;?>
+              </select>
+          </p>
 
-    <br>
-    <br>
-    <br>
+        <p class="titleSize">Transfer to:
+          <select name = "account2">
+              <option value=''></option>
+            <?php
+              $result1 = mysqli_query($conn, "SELECT acctname from bankaccounts WHERE userID = '$userID'");
+              // $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
 
-    <form action = "" method = post>
-    <p class="title">Transfer to:
-    <select name = "account2">
-      <?php
-        $result1 = mysqli_query($conn, "SELECT acctname from bankaccounts WHERE userID = '$userID'");
-        // $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
+              while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc();?>
+                <option value= "<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?></option>
+                <?php endwhile;?>
 
-        while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc();?>
-          <option value= "<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?></option>
-          <?php endwhile;?>
+              </select>
+        </p>
 
-        </select></p>
-
-      <p>Amount to transfer</p>
-      <input type="text" name="amount" id="transferAmnt">
-      <input type = submit name = "submit">
-    </form>
+        <p class="titleSize">Amount to transfer:</p>
+        <input type="text" name="amount" id="transferAmnt" class = "size">
+        <input type = submit name = "submit" id = 'submit' class = "size">
+      </form>
   </div>
 
   </body>
@@ -63,6 +62,8 @@
 
 
   if (isset($_POST['submit'])) {
+    if($_POST['amount'])
+    {
        $account1 = $_POST['account1'];
        $account2 = $_POST['account2'];
        $amount = $_POST['amount'];
@@ -79,11 +80,11 @@
 
        if($acctNum1 < $acctNum2)
        {
-          echo 'Insufficient funds.';
+          echo '<p style= "text-align: center;">Insufficient funds.</p>';
        }
        else if ($acctNum1 == $acctNum2)
        {
-         echo 'Same account!';
+         echo '<p style = "text-align: center;">Same account!</p>';
        }
        else
        {
@@ -97,6 +98,11 @@
 
 
       }
+    }
+    else
+    {
+      echo '<p style = "text-align: center;">Transfer amount was not entered. </p>';
+    }
 
   }
 
