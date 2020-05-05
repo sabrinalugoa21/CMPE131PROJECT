@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST["username"]) && isset($_POST["password"])){
 
       $conn = mysqli_connect("localhost", "root", "", "userbank");
@@ -38,7 +39,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-                              header('Location: /test_userpage.php');
+                              header('Location: withdraw.php');
                         }
                   }
                   else{
@@ -86,7 +87,7 @@ else {
 
 <div id= "form">
  <h2>Login</h2>
-    <form action = "/atm.php" method="post">
+    <form action = "atmlogin.php" method="post">
             <input type= "text" name = "username" placeholder = "username/email">
             <input type= "password" name = "password" placeholder = "pin">
       <button type = "submit" name= "login-submit">Login</button>
