@@ -38,7 +38,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-                              header('Location: /atm.php');
+                              header('Location: /test_userpage.php');
                         }
                   }
                   else{
@@ -81,14 +81,12 @@ else {
 
 <div class="topnav">
        <a class="active" href="homepage.php">Home</a>
-       <a href="deposit.php">Deposit</a>
-       <a href="withdraw.php">Withdraw</a>
 </div>
 <br>
 
 <div id= "form">
  <h2>Login</h2>
-    <form action = "" method="post">
+    <form action = "/atm.php" method="post">
             <input type= "text" name = "username" placeholder = "username/email">
             <input type= "password" name = "password" placeholder = "pin">
       <button type = "submit" name= "login-submit">Login</button>
