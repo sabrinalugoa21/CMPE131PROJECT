@@ -5,20 +5,39 @@
 
   <link rel="stylesheet" href="registerStyle.css">
   </head>
+
   <body>
-    <h1>Registration</h1>
-    <div class = "column1">
-    <img src ="savePig.jpg" alt = "save money!" id = "box1">
-    <p id = "box2">[INCENTIVE INSERT HERE]</p>
-  </div>
-  <div class="column2">
-    <p id = "box4">[INSPIRATIONAL QUOTE]</p>
-    <img src = "quick.jpeg" alt= "inspiration" id = "box3">
+    <!MENU BAR>
+    <div id="mySidenav" class="sidenav">
+     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+     <a href="">Checking Account</a>
+     <a href="">Savings Account</a>
+     <a href="">Investing</a>
+     <a href="">Better Money Habits</a>
+    </div>
 
-  </div>
+    <div id="main">
 
+     <div class="header">
+       <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+       <!TOP BAR>
+       <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+    </div>
 
-<div id= "form">
+    <div class="topnav">
+           <a class="active" href="homepage.php">Home</a>
+           <a href="homepage.php#news">News</a>
+           <a href="homepage.php#contact">Contact</a>
+           <a href="homepage.php#about">About</a>
+           <div class="header-right">
+              <a class="active" href="login.php">Login</a>
+           </div>
+    </div>
+    <br>
+
+  <div class = "row">
+      <div class = "loginform">
+        <h2>Register</h2>
     <form action = "register.php" method="post">
         <div class = "form-group">
           <label for ="First name"> First name:</label>
@@ -45,9 +64,10 @@
         <label for = "Email"> Email: </label>
         <input name = "email" type = "text">
       </div>
-        <input type = "submit" name = "submit" id = "submit">
-
+          <p><button type = "submit" name= "login-submit">Submit</button></p>
    </form>
+
+  </div>
 </div>
 <?php
   if (isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["username"])
@@ -93,6 +113,7 @@
         $sql2 = "INSERT INTO accounts (userID, acctname, balance) VALUES
                 ('$userID','Savings','0.00')"; //starting balance in each account is zero
             $results2 = mysqli_query($conn, $sql2);
+
         header('Location: login.php'); //Change location based on where project folder is saved.
       } else {
       echo mysqli_error($conn);
