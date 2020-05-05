@@ -16,54 +16,44 @@
         die("Connection failed: " . mysqli_connect_error());
       }
 
-      $userID = $_SESSION['userID'];
+      $userID = 101010;
     ?>
 
     <div class="custom-select" style="width:200px;">
-      <p class="title">Transfer from:</p>
-
-    <select name = "account">
+    <form action = "" method = post>
+    <p class="title">Transfer from:
+    <select name = "account1">
       <?php
-
         $result1 = mysqli_query($conn, "SELECT acctname from bankaccounts WHERE userID = '$userID'");
-        $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
+        // $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
 
-        while($row1 = $result1->fetch_assoc() && $row2 = $result2->fetch_assoc())
-        {
-          $acctname = $row1['acctname'];
-          $acctnum = $row2['acctnum'];
-          echo "<option value = '$acctname'>$acctname</option>";
-          echo"<option value = '$acctnum'>$acctnum</>";
-        }
-
-      ?>
-      <option value="0"></option>
-      <?php
-       echo "<option value='$result1'>Checkings $result1</option>";
-       echo "<option value='$result2'>Savings $result2 </option>";
-       ?>
-    </select>
-    <div class = "selection">
+        while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc()?>
+          <option value= "<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?></option>
+          <?php endwhile;?>
+    </select></p>
     </div>
 
     <br>
     <br>
     <br>
 
-    <p class = "title">Transfer to:</p>
-    <select>
-      <option value="0"></option>
+    <form action = "" method = post>
+    <p class="title">Transfer to:
+    <select name = "account2">
       <?php
-        echo "<option value="$result1">Checkings $result1</option>";
-        echo "<option value="$result2">Savings $result2</option>";
-        ?>
-    </select>
-   <div class = "selection">
+        $result1 = mysqli_query($conn, "SELECT acctname from bankaccounts WHERE userID = '$userID'");
+        // $resul2 = mysqli_query($conn, "SELECT acctnum from bankaccounts WHERE userID = '$userID'");
+
+        while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc();?>
+          <option value= "<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?></option>
+          <?php endwhile;?>
+
+        </select></p>
 
       <p>Amount to transfer</p>
       <input type="text" name="amount" id="transferAmnt">
       <input type = submit name = "submit">
-    </div>
+    </form>
   </div>
 
   </body>
@@ -72,54 +62,42 @@
 <?php
 
 
-  if (isset($_POST["$result1"]) && isset($_POST["$result2"]) && isset($_POST["account"])) {
+  if (isset($_POST['submit'])) {
+       $account1 = $_POST['account1'];
+       $account2 = $_POST['account2'];
+       $amount = $_POST['amount'];
 
-    if ($_POST["$result1"] && $_POST["$result2"] && $_POST["account"]) {
-       $sql1 = mysqli_query("SELECT balance FROM bankaccounts WHERE acctnum = '$result1'");
-       $sql2 = mysqli_query("SELECT balance FROM bankaccounts WHERE acctnum = '$result1'");
+       $sql1 = mysqli_query($conn,"SELECT balance FROM bankaccounts WHERE userID = '$userID' AND acctname = '$account1'");
+       $sql2 = mysqli_query($conn, "SELECT balance FROM bankaccounts WHERE userID = '$userID' AND acctname = '$account2'");
 
-       if($sql1 < $sql2)
+       $row1 = mysqli_fetch_assoc($sql1);
+       $row2 = mysqli_fetch_assoc($sql2);
+
+       $acctNum1 = $row1["balance"];
+       $acctNum2 = $row2["balance"];
+
+
+       if($acctNum1 < $acctNum2)
        {
-         echo 'Insufficient funds.';
+          echo 'Insufficient funds.';
+       }
+       else if ($acctNum1 == $acctNum2)
+       {
+         echo 'Same account!';
        }
        else
        {
-          $sum1 = $sql1 - $account;
-          $sum2 = $sql2 + $account;
+
+          $sum1 = $acctNum1 - $amount;
+          $sum2 = $acctNum2 + $amount;
 
 
-           mysqli_query($conn, "SELECT acctnum, balance, REPLACE(balance,'$sql1', '$sum1')
-           FROM bankaccounts WHERE balance = '$sql1'");
-
-           mysqli_query($conn, "SELECT acctnum, balance, REPLACE(balance,'$sql2', '$sum2')
-           FROM bankaccounts WHERE balance = '$sql2'");
-        }
-     }
-   }
-  else if (isset($_POST["$result2"]) && isset($_POST["$result1"]) && isset($_POST["account"])) {
-
-      if ($_POST["$result2"] && $_POST["$result1"] && $_POST["account"]) {
-
-         $sql1 = mysqli_query("SELECT balance FROM bankaccounts WHERE acctnum = '$result2'");
-         $sql2 = mysqli_query("SELECT balance FROM bankaccounts WHERE acctnum = '$result1'");
-
-         if($sql1 < $sql2)
-         {
-           echo 'Insufficient funds.';
-         }
-         else
-         {
-           $sum1 = $sql1 - $account;
-           $sum2 = $sql2 + $account;
+           mysqli_query($conn, "UPDATE bankaccounts set balance = '$sum1' WHERE userID = '$userID' AND acctname = '$account1'");
+           mysqli_query($conn, "UPDATE bankaccounts set balance = '$sum2' WHERE userID = '$userID' AND acctname = '$account2'");
 
 
-           mysqli_query($conn, "SELECT acctnum, balance, REPLACE(balance,'$sql1','$sum1')
-           FROM bankaccounts WHERE balance = '$sql1'");
+      }
 
-           mysqli_query($conn, "SELECT acctnum, balance, REPLACE(balance,'$sql2','$sum2')
-           FROM bankaccounts WHERE balance = '$sql2'");
-        }
-    }
   }
 
 ?>
