@@ -1,0 +1,87 @@
+<style>
+      * {
+        box-sizing: border-box;
+      }
+      /*BODY TEXT*/
+        body {
+          font-family:Georgia;
+          color: #05386B;
+          padding: 5px;
+          background:	#a8e4a0;
+          margin: 0;
+        }
+      /* HEADER */
+      .header {
+        padding: 30px;
+        text-align: center;
+        background: #a8e4a0;
+        background-image:url("https://image.shutterstock.com/image-vector/natural-forest-trees-mountains-horizon-260nw-1588730179.jpg");
+      }
+      .header h1 {
+        font-size: 35px;
+        color: #EDF5E1;
+      }
+
+      .header h2{
+        font-family: monospace;
+        font-size: 15px;
+        color: purple;
+      }
+      /*ACCOUNT CARDS*/
+      /* Left column */
+      .leftcolumn {
+        float: left;
+        padding-left: 40px;
+      }
+
+      /* Right column */
+      .rightcolumn {
+        float: right;
+        padding-right: 40px;
+      }
+
+      .account {
+        background-color: #EDF5E1;
+        padding: 40px;
+        margin-top: 40px;
+        width: auto;
+      }
+
+      .column {
+        background-color: #EDF5E1;
+        padding: 40px;
+        margin-top: 40px;
+        width: 95%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /*TOP LINK BAR*/
+      .topnav {
+        overflow: hidden;
+        background-color: #EDF5E1;
+      }
+
+      .topnav a{
+            float: left;
+            display: block;
+            color: #379683;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+      }
+      .topnav2 a{
+            float: left;
+            display: block;
+            color: #EDF5E1;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+      }
+
+</style>
