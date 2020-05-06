@@ -41,8 +41,8 @@
           </div>
 
           <div class="rightcolumn">
-            <h1>Put Some Catchy Logo Here</h1>
-            <p>Put some other stuff here and add a button</p>
+            <h1>Click below to register for an account</h1>
+            <!-- <p>Put some other stuff here and add a button</p> -->
             <br>
             <a href = "register.php", button class="button button1">Register</a>
           </div>
@@ -54,8 +54,8 @@
       <div class = "section">
         <div class="row">
           <div class="leftcolumn">
-            <h1>Put Some Catchy Logo Here</h1>
-            <p>Put some other stuff here and add a button</p>
+            <h1>Click below to sign in to your account</h1>
+            <!-- <p>Put some other stuff here and add a button</p> -->
             <br>
             <a href = "", button class="button button1">This can go to something</a>
           </div>
