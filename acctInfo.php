@@ -39,21 +39,10 @@
                         <a href= "customAccounts.php" style="float: left;"> View Accounts</a>
                         <a href= "addAccount.php" style="float: left;"> Add Accounts</a>
                         <a href= "deleteAccount.php" style="float: left;"> Delete Accounts</a>
+                        <a href= "transfer.php" style="float: left;">Transfer Cash</a>
+                        <a href= "deposit.php" style="float: left;">Deposit Cash</a>
       				</div>
       			</div>
-
-          <div class = "rightcolumn">
-                <div class= "account">
-                       <h2> Navigation </h2>
-                       <p><a href="test_userpage.php">Return to Home</a></p>
-                       <p>--</p>
-                       <p><a href= "transfer.php">Transfer Cash</a></p>
-                       <p>--</p>
-                       <p><a href= "customAccounts.php"> View Accounts</a></p>
-                       <p><a href= "addAccount.php"> Add Accounts</a></p>
-                       <p><a href= "deleteAccount.php"> Delete Accounts</a></p>
-                </div>
-          </div>
 
             <div class = "leftcolumn">
                   <div class = "column">

@@ -25,19 +25,9 @@
       <div class="topnav">
         <!This is the sign up button, will add a connection later>
       	<a href="logout.php" style="float: right;"> Sign Out</a>
-        <!Lauren: I don't know if the main menu button needs a dropdown menu with those links rn>
-        <!This is the dropdown button with options, they connect to nowhere rn>
       	<a href="acctInfo.php" style="float: left;"> Account Information</a>
       </div>
-
-      <br>
-      <div class = "row"><!Right Column>
-        <div class = "rightcolumn">
-          <div class= "account">
-            <p> add a photo or a quote here </p>
-          </div>
-        </div>
-
+      
         <div class = "leftcolumn"><!Left Column>
           <div class = "account">
             <h1>Accounts</h1>

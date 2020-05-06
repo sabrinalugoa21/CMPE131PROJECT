@@ -1,7 +1,12 @@
 <?php
+$errorMessage = "";
+$conn = mysqli_connect("localhost", "root", "", "userbank");
 if (isset($_POST["username"]) && isset($_POST["password"])){
-
-      $conn = mysqli_connect("localhost", "root", "", "userbank");
+      if(isset($_SESSION['username'])){ //if the login is broken, check that this didn't break it 
+            session_start();
+            session_unset();
+            session_destroy();
+      }
 
       if(!$conn){
           die("Connection failed" . mysqli_connect_error());
@@ -9,27 +14,29 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 
       $username = $_POST['username'];
       $pin = $_POST['password'];
+
       if (empty($username) || empty($pin)){
             echo "variables empty";
             exit();
       }
       else {
-            $sql = "SELECT * FROM useraccounts WHERE userID=? OR email=?;";
+            $sql = "SELECT * FROM useraccounts WHERE username=?;";
             $stmt = mysqli_stmt_init($conn);
+
             if(!mysqli_stmt_prepare($stmt, $sql)) {
                   echo "first if error";
                   exit();
             }
             else{
-                  mysqli_stmt_bind_param($stmt, "si", $username, $username);
+                  //mysqli_stmt_bind_param($stmt, "si", $username, $username);
+                  mysqli_stmt_bind_param($stmt, "s", $username);
                   mysqli_stmt_execute($stmt);
                   $result = mysqli_stmt_get_result($stmt);
 
                   if ($row = mysqli_fetch_assoc($result)){
                         $pwdCheck = password_verify($pin, $row['pin']);
-                        echo ( 'Pin: '.$row['pin'] );
                         if(!($pin == $row['pin'])){
-                              echo "password check error";
+                              $errorMessage = "<b>Error:</b> Sign in failed. Incorrect username or password.";
                         }
                         else{
                               session_start();
@@ -38,7 +45,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                               $_SESSION['lname']= $row['lname'];
                               $_SESSION['username']= $row['username'];
                               $_SESSION['email']= $row['email'];
-                              header('Location: /test_userpage.php');
+                              header('Location: /atm.php');
                         }
                   }
                   else{
@@ -48,10 +55,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
       }
 }
 else {
-      //echo "A field is empty."; //will remove this once I figure some stuff out
+      echo ""; //will remove this once I figure some stuff out
 }
 ?>
-<!In the case that the whole thing isn't filled out. ^ ???>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -76,30 +83,41 @@ else {
  <div class="header">
    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
    <!TOP BAR>
-   <a href="homepage.php", class="logo", style="color: #FFFFE0">ATM</a>
+   <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
 </div>
 
 <div class="topnav">
        <a class="active" href="homepage.php">Home</a>
+       <a href="homepage.php#news">News</a>
+       <a href="homepage.php#contact">Contact</a>
+       <a href="homepage.php#about">About</a>
+       <div class="header-right">
+          <a class="active" href="register.php">Register</a>
+       </div>
 </div>
 <br>
 
-<div id= "form">
- <h2>Login</h2>
-    <form action = "/atm.php" method="post">
-            <input type= "text" name = "username" placeholder = "username/email">
-            <input type= "password" name = "password" placeholder = "pin">
-      <button type = "submit" name= "login-submit">Login</button>
-      </form>
-      <main>
-            <?php
-                  if(isset($_SESSION['username'])){
-                        echo '<p>Logged IN</p>';
-                  }
-                  else{
-                        echo '<p>Logged OUT</p>';
-                  }
-            ?>
-      </main>
-</div>
+
+      <div class = "row">
+                  <div class= "loginform">
+                         <h2>Login</h2>
+                              <p style = "color: red; text-align: center;" ><?php echo $errorMessage ?></p>
+                            <form action = "atmlogin.php" method="post">
+                                    <p><input type= "text" name = "username" placeholder = "username" required></p>
+                                    <p><input type= "password" name = "password" placeholder = "pin" required></p>
+                              <p><button type = "submit" name= "login-submit">Login</button></p>
+                              </form>
+                              <main>
+                                    <?php
+                                          if(isset($_SESSION['username'])){
+                                                echo '<p>Logged IN</p>';
+                                          }
+                                          else{
+                                                echo '<p style= "text-align: center;">Don\'t have an account yet? ';
+                                                echo '<a href="register.php">Register here.</a></p>';
+                                          }
+                                    ?>
+                              </main>
+                        </div>
+            </div>
 </body>

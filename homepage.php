@@ -16,8 +16,6 @@
       <a href="">Better Money Habits</a>
     </div>
 
-
-    
     <div id="main">
 
       <div class="header">
@@ -66,7 +64,7 @@
             <img src="money.jpg" alt="Image 2" style="border-radius:50%">
           </div>
         </div>
-      </div> 
+      </div>
 
        <!Testemonials>
       <br>
@@ -97,7 +95,7 @@
           <span class="dot" onclick="currentSlide(1)"></span>
           <span class="dot" onclick="currentSlide(2)"></span>
           <span class="dot" onclick="currentSlide(3)"></span>
-        </div> 
+        </div>
 
          <script>
           var slideIndex = 1;
@@ -128,7 +126,7 @@
           }
         </script>
 
-        
+
 
         <br>
       </div>

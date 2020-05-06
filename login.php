@@ -2,6 +2,11 @@
 $errorMessage = "";
 $conn = mysqli_connect("localhost", "root", "", "userbank");
 if (isset($_POST["username"]) && isset($_POST["password"])){
+      if(isset($_SESSION['username'])){ //if the login is broken, check that this didn't break it 
+            session_start();
+            session_unset();
+            session_destroy();
+      }
 
       if(!$conn){
           die("Connection failed" . mysqli_connect_error());
