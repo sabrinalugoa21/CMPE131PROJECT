@@ -107,6 +107,14 @@ else {
                                     <p><input type= "password" name = "password" placeholder = "pin" required></p>
                               <p><button type = "submit" name= "login-submit">Login</button></p>
                               </form>
+                  </div>
+
+                              
+
+
+
+
+                              
                               <main>
                                     <?php
                                           if(isset($_SESSION['username'])){

@@ -333,6 +333,20 @@
     text-align: center;
     color: cornflowerblue;
   }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .loginform{
+    box-sizing: border-box;
+    margin: auto;
+    /* margin-right: 5%; */
+    width: 30%;
+    background: #FFFFE0;
+  
+    text-align: center;
+  }
 /*END: SlideShow*/
 
 </style>
