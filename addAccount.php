@@ -2,7 +2,6 @@
   session_start();
   //connnect to localhost
   $conn = mysqli_connect("localhost","root","","userbank");
-  echo "connected! <br>";
   //check connection
   if(!$conn){
       die("Connection failed" . mysqli_connect_error());
