@@ -10,7 +10,7 @@
     background:	#00daec;
     margin: 0;
   }
-/* HEADER
+ /*HEADER
       .header {
         padding: 30px;
         text-align: center;
@@ -71,7 +71,7 @@
 /*TOP LINK BAR*/
   .topnav {
     overflow: hidden;
-    background-color: lightyellow;
+    background-color: white;
   }
   .topnav2 {
     overflow: hidden;
@@ -262,6 +262,20 @@
     background-color: #FFFFE0;
     color: #1e90ff;
   }
+  .buttons{
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 30px;
+  }
+  .buttons a{
+    float: left;
+    width: 15%;
+    text-decoration: none;
+    color: black;
+    margin-left: 22%;
+  }
+  
 /*END: Buttons*/
 
 /*BEGIN: SlideShow*/
