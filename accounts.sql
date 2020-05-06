@@ -10,6 +10,8 @@ CREATE TABLE `accounts` (
   `acctNum` int(11) NOT NULL,
   `acctName` varchar(255) DEFAULT NULL,
   `balance` int(11) NOT NULL
+   `image` varchar(200) NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
