@@ -1,15 +1,7 @@
 <?php
 $errorMessage = "";
+$conn = mysqli_connect("localhost", "root", "", "userbank");
 if (isset($_POST["username"]) && isset($_POST["password"])){
-
-      //if someone is already logged in, automatically log them out
-      if(isset($_SESSION['username'])){
-            session_start();
-            session_unset();
-            session_destroy();
-      }
-
-      $conn = mysqli_connect("localhost", "root", "", "userbank");
 
       if(!$conn){
           die("Connection failed" . mysqli_connect_error());
@@ -17,19 +9,22 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 
       $username = $_POST['username'];
       $pin = $_POST['password'];
+
       if (empty($username) || empty($pin)){
             echo "variables empty";
             exit();
       }
       else {
-            $sql = "SELECT * FROM useraccounts WHERE userID=? OR email=?;";
+            $sql = "SELECT * FROM useraccounts WHERE username=?;";
             $stmt = mysqli_stmt_init($conn);
+
             if(!mysqli_stmt_prepare($stmt, $sql)) {
                   echo "first if error";
                   exit();
             }
             else{
-                  mysqli_stmt_bind_param($stmt, "si", $username, $username);
+                  //mysqli_stmt_bind_param($stmt, "si", $username, $username);
+                  mysqli_stmt_bind_param($stmt, "s", $username);
                   mysqli_stmt_execute($stmt);
                   $result = mysqli_stmt_get_result($stmt);
 
