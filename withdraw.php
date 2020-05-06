@@ -2,7 +2,7 @@
   session_start();
   //connnect to localhost
   $conn = mysqli_connect("localhost","root","","userbank");
-  echo "connected! <br>";
+  // echo "connected! <br>";
   //check connection
   if(!$conn){
       die("Connection failed" . mysqli_connect_error());
@@ -80,7 +80,7 @@
 ?>
 <html>
   <body>
-    //ADD an ACCOUNT
+    <!-- //ADD an ACCOUNT -->
         <!-- <form action = "addAccount.php" method="post">
             <div class = "form-group">
               <label for = "acctName"> account name: </label>
@@ -128,7 +128,7 @@
                           <div class = "form-group">
                             <label for = "acctName"> account name: </label>
                             <input name = "acctName" type = "text">
-
+                            <br>
                             <label for = "balance"> initial balance: </label>
                             <input name = "balance" type = "number">
                           </div>
@@ -142,8 +142,8 @@
 <main>
       <?php
             if(isset($_SESSION['username'])){
-                  echo '<p>Logged IN</p>';
-                  echo("Session ID: " .$_SESSION['userID']);
+                  // echo '<p>Logged IN</p>';
+                  // echo("Session ID: " .$_SESSION['userID']);
             }
             else{
                   echo '<p>Logged OUT</p>';

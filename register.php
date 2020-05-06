@@ -99,6 +99,10 @@
       $nameErr = "Only letters and white space allowed";
       die ("only numbers are allowed into pin ");
 }
+/*
+    pin input validation
+    if it not a number it is invalid 
+    */
 
     $email = $_POST["email"];
     $emailValidation = $_POST["email"];
