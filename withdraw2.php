@@ -19,7 +19,12 @@ $formresult = mysqli_query($conn, $form);
 if(isset($_POST['SubmitButton'])){ //check if form was submitted
         $amount = $_POST['amount']; //get input text
         $account = $_POST['account'];
-
+    //     $amountValidation = $_POST["amount"];
+    //     if (!preg_match("/^[0-9]*$/",$amountValidation)) {
+    //       $nameErr = "Only letters and white space allowed";
+    //       echo "Only letters and white space allowed";
+    //       exit;
+    // }
 
         $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
         $result = $conn->query($sql);

@@ -2,7 +2,7 @@
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bank Name</title>
+    <title>SJSU Bank</title>
     <link rel="stylesheet" href="homepage.css">
   </head>
 
@@ -21,7 +21,7 @@
       <div class="header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
         <!TOP BAR>
-        <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+        <a href="homepage.php", class="logo", style="color: #FFFFE0">SJSU Bank</a>
       </div>
 
       <div class="topnav">

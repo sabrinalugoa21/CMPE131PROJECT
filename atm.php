@@ -29,8 +29,19 @@
        <a class="active" href="homepage.php">Home</a>
 </div>
 <br>
-<div class="buttons">
+<!-- <div class="buttons">
   <a href="deposit.php">Deposit</a>
   <a href="withdraw2.php">Withdraw</a>
-</div>
+</div> -->
+
+<div class = "leftcolumn"><!Left Column>
+          <div class = "account">
+            <h1>Accounts</h1>
+            <div class="topnav2">
+              <!Deleted link to savings because ALL accounts are displayed on the link below>
+
+              <a href="deposit.php">Deposit</a>
+              <a href="withdraw2.php">Withdraw</a>
+            </div>
+          </div>
 </body>

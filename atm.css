@@ -50,7 +50,10 @@
   .account {
     background-color: #EDF5E1;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
+    left: 60%;
+    position: relative;
+
   }
   .account a{
     float: left;
