@@ -37,7 +37,7 @@
       <div class = "section">
         <div class = "row">
           <div class="leftcolumn">
-            <img src="space.jpg" alt="Image 2">
+            <img src="register.jpg", style="border-radius: 5%">
           </div>
 
           <div class="rightcolumn">
