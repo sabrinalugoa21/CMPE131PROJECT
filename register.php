@@ -77,11 +77,39 @@
 
     $userID = rand(100000,199999); //expand random number range if needed
     $fname = $_POST["fname"];
+    $fnameValidation = $_POST["fname"];
+    if (!preg_match("/^[a-zA-Z ]*$/",$fnameValidation)) {
+      $nameErr = "Only letters and white space allowed";
+      die("Only letters and white space allowed in first name");
+    }
+
     $lname = $_POST["lname"];
+    $lnameValidation = $_POST["lname"];
+    if (!preg_match("/^[a-zA-Z ]*$/",$lnameValidation)) {
+      $nameErr = "Only letters and white space allowed";
+      die("Only letters and white space allowed in last name");
+    }
+
     $username = $_POST["username"];
     //$password = $_POST["password"]; //Commented out password just in case
+
     $pin = $_POST["pin"];
+    $pinValidation = $_POST["pin"];
+    if (!preg_match("/^[0-9]*$/",$pinValidation)) {
+      $nameErr = "Only letters and white space allowed";
+      die ("only numbers are allowed into pin ");
+}
+
     $email = $_POST["email"];
+    $emailValidation = $_POST["email"];
+    if (!filter_var($emailValidation, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+      die("invalid email");
+    }
+    /*
+    email input validation
+    if it does not have the @ and the . in emails, it will be invalid
+    */
     //$acctnum = rand(100000,199999);
 
 
