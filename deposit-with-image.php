@@ -15,31 +15,41 @@ $message = "";
 if(isset($_POST['SubmitButton'])){ //check if form was submitted
         $amount = $_POST['amount']; //get input text
         $account = $_POST['account'];
+        $amountValidation = $_POST["amount"];
 
-        $file = $_FILES['image'];
-        $image = $_FILES['image']['name'];
-        echo $image;
-        $db = mysqli_connect("localhost","root","","userbank");
+        if (!preg_match("/^[0-9]*$/",$amountValidation)) {
+             $nameErr = "Only letters and white space allowed";
+            $message = "<b>Error:</b> Only numbers allowed.";
+       }
+       else if ($amount <= 0){
+              $message = "<b>Error:</b> Please enter a dollar amount greater than zero.";
+       }
+       else{
+              $file = $_FILES['image'];
+              $image = $_FILES['image']['name'];
+              echo $image;
+              $db = mysqli_connect("localhost","root","","userbank");
 
-        $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
-        $result = $conn->query($sql);
-            $row = mysqli_fetch_assoc($result);
+              $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
+              $result = $conn->query($sql);
+                  $row = mysqli_fetch_assoc($result);
 
-            $acctNum = $row["acctNum"];
-            $balance = $row["balance"];
+                  $acctNum = $row["acctNum"];
+                  $balance = $row["balance"];
 
-        $newbalance = $balance + $amount;
+              $newbalance = $balance + $amount;
 
-        $sql2 = "UPDATE accounts SET balance='$newbalance', image = '$image' WHERE userID='$userID'AND acctName = '$account'" ;
+              $sql2 = "UPDATE accounts SET balance='$newbalance', image = '$image' WHERE userID='$userID'AND acctName = '$account'" ;
 
-              if ($conn->query($sql2) === TRUE) {
-                 //echo "Record updated successfully"; //commented out so user does not see this
-             } else {
-                 echo "Error updating record: " . $conn->error;
-             }
+                    if ($conn->query($sql2) === TRUE) {
+                       //echo "Record updated successfully"; //commented out so user does not see this
+                   } else {
+                       echo "Error updating record: " . $conn->error;
+                   }
 
-  //$finalbalance = $row["balance"];
-  $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $$newbalance.";
+              //$finalbalance = $row["balance"];
+              $message = "<p>Success! You deposited $$amount into $account.</p> <p>Your new balance is $$newbalance.";
+        }
 }
 
 ?>

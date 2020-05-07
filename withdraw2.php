@@ -12,42 +12,45 @@
 //$userID =167053; //was using this line for testing (to avoid having to log in)
 $message = "";
 
-$form = "SELECT * FROM accounts WHERE userID='$userID'";
-$formresult = mysqli_query($conn, $form);
 /*ACCOUNT SELECTION MENU END*/
 
 if(isset($_POST['SubmitButton'])){ //check if form was submitted
         $amount = $_POST['amount']; //get input text
         $account = $_POST['account'];
-    //     $amountValidation = $_POST["amount"];
-    //     if (!preg_match("/^[0-9]*$/",$amountValidation)) {
-    //       $nameErr = "Only letters and white space allowed";
-    //       echo "Only letters and white space allowed";
-    //       exit;
-    // }
-
+       $amountValidation = $_POST["amount"];
+     if (!preg_match("/^[0-9]*$/",$amountValidation)) {
+           $nameErr = "Only letters and white space allowed";
+          $message = "<b>Error:</b> Only numbers allowed.";
+     }
+     else if ($amount <= 0){
+            $message = "<b>Error:</b> Please enter a dollar amount greater than zero.";
+     }
+     else{
         $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
         $result = $conn->query($sql);
             $row = mysqli_fetch_assoc($result);
 
             $acctNum = $row["acctNum"];
             $balance = $row["balance"];
-
             $newbalance = $balance - $amount;
 
-            $sql2 = "UPDATE accounts SET balance='$newbalance' WHERE userID='$userID'AND acctName = '$account'" ;
+            if ($newbalance < 0){
+                  $message = "<b>Error:</b> Insufficient funds.";
+            }
+            else {
+                  $sql2 = "UPDATE accounts SET balance='$newbalance' WHERE userID='$userID'AND acctName = '$account'" ;
 
-                  if ($conn->query($sql2) === TRUE) {
-                     //echo "Record updated successfully"; //commented out so user does not see this
-                 } else {
-                     echo "Error updating record: " . $conn->error;
-                 }
+                        if ($conn->query($sql2) === TRUE) {
+                           //echo "Record updated successfully"; //commented out so user does not see this
+                       } else {
+                           echo "Error updating record: " . $conn->error;
+                       }
 
-        //$finalbalance = $row["balance"];
-        $message = "<p>Success! You withdrew $$amount from $account.</p> <p>Your new balance is $$newbalance.";
+                    //$finalbalance = $row["balance"];
+                    $message = "<p>Success! You withdrew $$amount from $account.</p> <p>Your new balance is $$newbalance.";
+              }
         }
-
-    mysqli_close($conn);
+ }
 
 ?>
 <html>
@@ -76,6 +79,8 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                               <p> Account name: <select id="account" name="account">
                               <?php
                                     /*ACCOUNT SELECTION MENU CONT.*/
+                                    $form = "SELECT * FROM accounts WHERE userID='$userID'";
+                                    $formresult = mysqli_query($conn, $form);
                                         while($row1 = $formresult->fetch_assoc()):;?>
                                         <option value="<?php echo $row1["acctName"];?>"><?php echo $row1["acctName"];?>  [Balance: $<?php echo $row1["balance"];?>]</option>
                                   <?php endwhile;
