@@ -1,3 +1,4 @@
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -38,23 +39,23 @@
   <div class = "row">
       <div class = "loginform">
         <h2>Register</h2>
-    <form action = "register.php" method="post">
-        <div class = "form-group">
-          <label for ="First name"> First name:</label>
-          <input name = "fname" type = "text">
-        </div>
-        <div class = "form-group">
-          <label for = "Last name"> Last name: </label>
-          <input name = "lname" type = "text">
-      </div>
-      <div class = "form-group">
-        <label for = "Username"> Username: </label>
-        <input name = "username" type = "text">
-      </div>
-        <div class = "form-group">
-          <label for = "Pin"> PIN: </label>
-          <input name = "pin" type = "password">
-        </div>
+        <form action = "register.php" method="post">
+            <div class = "form-group">
+              <label for ="First name"> First name:</label>
+              <input name = "fname" type = "text" required>
+            </div>
+            <div class = "form-group">
+              <label for = "Last name"> Last name: </label>
+              <input name = "lname" type = "text" required>
+          </div>
+          <div class = "form-group">
+            <label for = "Username"> Username: </label>
+            <input name = "username" type = "text" required>
+          </div>
+            <div class = "form-group">
+              <label for = "Pin"> PIN: </label>
+              <input name = "pin" type = "password" required>
+            </div>
 
       <!--div class = "form-group">
         <label for ="Password">Password: </label>
@@ -158,8 +159,6 @@
       echo "A field is empty."; //Also as a toast message
     }
   }
-
-
     /*else {
       echo "Form was not submitted.";
     }*/
