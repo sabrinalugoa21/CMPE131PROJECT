@@ -32,7 +32,7 @@
 
             <div class = "row">
                 <div id = "grad1", class = "header"><h1>
-                 <p class = "custom1"> SJSU BANK</p>
+                 <p class = "custom1"> Corona Credit</p>
                </h1></div>
             		<div class="topnav">
                               <a href="logout.php" style="float: right;"> Sign Out</a>

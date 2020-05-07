@@ -2,7 +2,7 @@
 $errorMessage = "";
 $conn = mysqli_connect("localhost", "root", "", "userbank");
 if (isset($_POST["username"]) && isset($_POST["password"])){
-      if(isset($_SESSION['username'])){ //if the login is broken, check that this didn't break it 
+      if(isset($_SESSION['username'])){ //if the login is broken, check that this didn't break it
             session_start();
             session_unset();
             session_destroy();
@@ -83,7 +83,7 @@ else {
  <div class="header">
    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
    <!TOP BAR>
-   <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+   <a href="homepage.php", class="logo", style="color: #FFFFE0">Corona Credit</a>
 </div>
 
 <div class="topnav">

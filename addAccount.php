@@ -45,14 +45,14 @@
 <html>
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
-    <title>Deposit</title>
+    <title>Add Account</title>
     <link rel="stylesheet" href="addAccount.css">
   </head>
 
   <body>  <!This is the title page>
     <div class = "row">
       <div id = "grad1", class = "header">
-        <h1><p class = "custom1"> BANK NAME</p></h1>
+        <h1><p class = "custom1">Corona Credit</p></h1>
       </div>
       <div class="topnav">
       	<a href="" style="float: right;"> Sign Out</a>

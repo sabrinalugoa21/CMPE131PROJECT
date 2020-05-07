@@ -26,21 +26,14 @@
 </div>
 
 <div class="topnav">
-       <a class="active" href="homepage.php">Home</a>
+       <a class="active" href="logout.php">Log out</a>
 </div>
 <br>
-<!-- <div class="buttons">
-  <a href="deposit.php">Deposit</a>
-  <a href="withdraw2.php">Withdraw</a>
-</div> -->
 
 <div class = "leftcolumn"><!Left Column>
           <div class = "account">
             <h1>Accounts</h1>
             <div class="topnav2">
-              <!Deleted link to savings because ALL accounts are displayed on the link below>
-
-              <a href="deposit.php">Deposit</a>
               <a href="withdraw2.php">Withdraw</a>
             </div>
           </div>

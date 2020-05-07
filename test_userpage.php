@@ -1,7 +1,7 @@
 <html>
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
-    <title>SJSU Bank</title>
+    <title>Corona Credit</title>
     <link rel="stylesheet" href="test_userpage.css">
   </head>
 
@@ -18,7 +18,7 @@
       <!Header>
       <div class="header">
         <span style="float:left",style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
-        <h1 class="logo">SJSU Bank</h1>
+        <h1 class="logo">Corona Credit</h1>
       </div>
 
       <!TOP BAR>
@@ -27,7 +27,7 @@
       	<a href="logout.php" style="float: right;"> Sign Out</a>
       	<a href="acctInfo.php" style="float: left;"> Account Information</a>
       </div>
-      
+
         <div class = "leftcolumn"><!Left Column>
           <div class = "account">
             <h1>Accounts</h1>

@@ -109,12 +109,6 @@ else {
                               </form>
                   </div>
 
-
-
-
-
-
-
                               <main>
                                     <?php
                                           if(isset($_SESSION['username'])){

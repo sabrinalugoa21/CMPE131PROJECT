@@ -21,7 +21,7 @@
      <div class="header">
        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
        <!TOP BAR>
-       <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+       <a href="homepage.php", class="logo", style="color: #FFFFE0">Corona Credit</a>
     </div>
 
     <div class="topnav">
@@ -101,7 +101,7 @@
 }
 /*
     pin input validation
-    if it not a number it is invalid 
+    if it not a number it is invalid
     */
 
     $email = $_POST["email"];
