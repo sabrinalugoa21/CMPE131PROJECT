@@ -3,7 +3,7 @@
 <head> <!This is the title of the webpage>
   <meta charset="utf-8">
   <title>Delete Account</title>
-  <link rel="stylesheet" href="deposit.css">
+  <link rel="stylesheet" href="deleteAccount.css">
 </head>
 
 <div class = "row">
