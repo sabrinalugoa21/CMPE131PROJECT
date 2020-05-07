@@ -2,7 +2,7 @@
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SJSU Bank</title>
+    <title>Corona Credit</title>
     <link rel="stylesheet" href="homepage.css">
   </head>
 
