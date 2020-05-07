@@ -36,16 +36,26 @@
       }
 
       if ($valid){
-            $sql = "INSERT INTO accounts (userID, acctName, balance) VALUES
-            ('$userid','$acctname','$balance')";//starting balance in each account it zero
-            // echo $sql;
-            $results = mysqli_query($conn, $sql);
-            if ($results) {
-              $message =  "New account added: $acctname [Balance: $$balance]"; //As a toast message
-              //we can output the account info after
-            } else {
-              echo mysqli_error($conn);
-              echo "something 1";
+            $amountValidation = $_POST["balance"];
+          if (!preg_match("/^[0-9]*$/",$amountValidation)) {
+                $nameErr = "Only letters and white space allowed";
+               $message = "<b>Error:</b> Only numbers allowed.";
+          }
+          else if ($balance <= 0){
+                 $message = "<b>Error:</b> Please enter a dollar amount greater than zero.";
+          }
+          else{
+                  $sql = "INSERT INTO accounts (userID, acctName, balance) VALUES
+                  ('$userid','$acctname','$balance')";//starting balance in each account it zero
+                  // echo $sql;
+                  $results = mysqli_query($conn, $sql);
+                  if ($results) {
+                    $message =  "New account added: $acctname [Balance: $$balance]"; //As a toast message
+                    //we can output the account info after
+                  } else {
+                    echo mysqli_error($conn);
+                    echo "something 1";
+                  }
             }
       }
       else {
