@@ -57,7 +57,7 @@
             <h1>Click below to sign in to your account</h1>
             <!-- <p>Put some other stuff here and add a button</p> -->
             <br>
-            <a href = "", button class="button button1">Login</a>
+            <a href = "login.php", button class="button button1">Login</a>
           </div>
 
           <div class="leftcolumn">

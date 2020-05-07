@@ -14,6 +14,11 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 
       $username = $_POST['username'];
       $pin = $_POST['password'];
+//       $pinValidation = $_POST["pin"];
+//     if (!preg_match("/^[0-9]*$/",$pinValidation)) {
+//       $nameErr = "Only letters and white space allowed";
+//       die ("only numbers are allowed into pin ");
+// }
 
       if (empty($username) || empty($pin)){
             echo "variables empty";
