@@ -88,12 +88,6 @@ else {
 
 <div class="topnav">
        <a class="active" href="homepage.php">Home</a>
-       <a href="homepage.php#news">News</a>
-       <a href="homepage.php#contact">Contact</a>
-       <a href="homepage.php#about">About</a>
-       <div class="header-right">
-          <a class="active" href="register.php">Register</a>
-       </div>
 </div>
 <br>
 

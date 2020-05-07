@@ -26,7 +26,7 @@
 </div>
 
 <div class="topnav">
-       <a class="active" href="logout.php">Log out</a>
+       <a class="active" href="atmlogout.php">Log out</a>
 </div>
 <br>
 
