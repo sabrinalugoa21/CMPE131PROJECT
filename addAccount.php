@@ -19,7 +19,7 @@
       $userid = $_SESSION['userID'];
       $acctname= $_POST['acctName'];
       $balance = $_POST['balance'];
-      echo $balance;
+     
       //expand random number range if needed
       //Register user
       $sql = "INSERT INTO accounts (userID, acctName, balance) VALUES
@@ -27,8 +27,7 @@
       // echo $sql;
       $results = mysqli_query($conn, $sql);
       if ($results) {
-        echo "Added."; //As a toast message
-        //we can output the account info after
+        header("Location: /customAccounts.php"); 
       } else {
         echo mysqli_error($conn);
         echo "something 1";
