@@ -21,7 +21,7 @@
       <div class="header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
         <!TOP BAR>
-        <a href="homepage.php", class="logo", style="color: #FFFFE0">SJSU Bank</a>
+        <a href="homepage.php", class="logo", style="color: #FFFFE0">Corona Credit</a>
       </div>
 
       <div class="topnav">
@@ -57,7 +57,7 @@
             <h1>Click below to sign in to your account</h1>
             <!-- <p>Put some other stuff here and add a button</p> -->
             <br>
-            <a href = "", button class="button button1">This can go to something</a>
+            <a href = "", button class="button button1">Login</a>
           </div>
 
           <div class="leftcolumn">
