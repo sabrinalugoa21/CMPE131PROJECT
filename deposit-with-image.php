@@ -12,25 +12,14 @@
 //$userID =167053; //was using this line for testing (to avoid having to log in)
 $message = "";
 
-//$form = "SELECT * FROM accounts WHERE userID='$userID'";
-//$formresult = mysqli_query($conn, $form);
-/*ACCOUNT SELECTION MENU END*/
-
 if(isset($_POST['SubmitButton'])){ //check if form was submitted
         $amount = $_POST['amount']; //get input text
         $account = $_POST['account'];
 
         $file = $_FILES['image'];
-        // echo $file;
-        // echo $_FILES['image']['name'];
         $image = $_FILES['image']['name'];
         echo $image;
         $db = mysqli_connect("localhost","root","","userbank");
-        // $sql = "INSERT INTO accounts(userID,acctNum,AcctName,balance,image) VALUES(1234,9,9,9,'$image')";
-        // $mysql = mysqli_query($db,$sql);
-
-        // if($mysql){echo "added correctly";}
-        // else{echo mysqli_error($db);}
 
         $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
         $result = $conn->query($sql);
@@ -65,30 +54,19 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
   <body>  <!This is the title page>
       <div class = "row">
           <div id = "grad1", class = "header"><h1>
-           <p class = "custom1"> SJSU BANK</p>
+           <p class = "custom1"> Corona Credit</p>
          </h1></div>
           <div id = ""
-      		<div class="topnav">
-      			<a href="logout.php" style="float: right;"> Sign Out</a>
-      			<a href="test_userpage.php" style="float: left;"> Return to Home</a>
-                        <a href= "customAccounts.php" style="float: left;"> View Accounts</a>
-                        <a href= "addAccount.php" style="float: left;"> Add Accounts</a>
-                        <a href= "deleteAccount.php" style="float: left;"> Delete Accounts</a>
-      				</div>
-      			</div>
-
-          <div class = "rightcolumn">
-                <div class= "account">
-                       <h2> Navigation </h2>
-                       <p><a href="test_userpage.php">Return to Home</a></p>
-                       <p>--</p>
-                       <p><a href= "transfer.php">Transfer Cash</a></p>
-                       <p>--</p>
-                       <p><a href= "customAccounts.php"> View Accounts</a></p>
-                       <p><a href= "addAccount.php"> Add Accounts</a></p>
-                       <p><a href= "deleteAccount.php"> Delete Accounts</a></p>
+          <div class="topnav">
+                <a href="logout.php" style="float: right;"> Sign Out</a>
+                <a href="test_userpage.php" style="float: left;"> Return to Home</a>
+                <a href= "customAccounts.php" style="float: left;"> View Accounts</a>
+                <a href= "addAccount.php" style="float: left;"> Add Accounts</a>
+                <a href= "deleteAccount.php" style="float: left;"> Delete Accounts</a>
+                <a href= "transfer.php" style="float: left;">Transfer Cash</a>
+                <a href= "deposit-with-image.php" style="float: left;">Deposit Cash</a>
+                      </div>
                 </div>
-          </div>
 
             <div class = "leftcolumn">
                   <div class = "column">
@@ -104,8 +82,8 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
                                   /*ACCOUNT SELECTION END*/
                                   ?>
                                 </select></p>
-                          <p>Amount ($): <input type="text" name = "amount"> </p>
-                          <input type="file" name = "image"/>
+                          <p>Amount ($): <input type="text" name = "amount" required> </p>
+                          <p> Please upload an image of your check: <input type="file" name = "image" required></p>
                           <button type = "submit" name = "SubmitButton"> Deposit </button>
                         </form>
                         <p>

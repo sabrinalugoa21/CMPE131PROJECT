@@ -23,7 +23,6 @@
 
       <!TOP BAR>
       <div class="topnav">
-        <!This is the sign up button, will add a connection later>
       	<a href="logout.php" style="float: right;"> Sign Out</a>
       	<a href="acctInfo.php" style="float: left;"> Account Information</a>
       </div>
@@ -32,7 +31,6 @@
           <div class = "account">
             <h1>Accounts</h1>
             <div class="topnav2">
-              <!Deleted link to savings because ALL accounts are displayed on the link below>
 
               <a href="customAccounts.php" style="float: left;">View Accounts</a>
 
@@ -44,7 +42,7 @@
           <div class = "account">
             <h1>Transactions</h1>
             <div class="topnav2">
-              <a href="deposit.php" style="float: left">Deposit</a>
+              <a href="deposit-with-image.php" style="float: left">Deposit</a>
               <a href="transfer.php" style="float: left;">Transfer</a>
             </div>
           </div>

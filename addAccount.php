@@ -45,7 +45,7 @@
               //we can output the account info after
             } else {
               echo mysqli_error($conn);
-              
+              echo "something 1";
             }
       }
       else {
@@ -73,7 +73,7 @@
         <h1><p class = "custom1">Corona Credit</p></h1>
       </div>
       <div class="topnav">
-      	<a href="homepage.php" style="float: right;"> Sign Out</a>
+      	<a href="" style="float: right;"> Sign Out</a>
       	<a href="test_userpage.php" style="float: left;"> User Page</a>
       </div>
     </div>
