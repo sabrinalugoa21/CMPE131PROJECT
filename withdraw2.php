@@ -60,11 +60,11 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
   <body>  <!This is the title page>
       <div class = "row">
           <div id = "grad1", class = "header"><h1>
-           <p class = "custom1">SJSU Bank</p>
+           <p class = "custom1">Corona Credit</p>
          </h1></div>
           <div id = ""
       		<div class="topnav">
-                        <a href="logout.php" style="float: left;">Return to ATM</a>
+                        <a href="atm.php" style="float: left;">Return to ATM</a>
       			<a href="logout.php" style="float: right;"> Sign Out</a>
       				</div>
       			</div>
