@@ -2,7 +2,7 @@
   <head> <!This is the title of the webpage>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bank Name</title>
+    <title>Corona Credit</title>
     <link rel="stylesheet" href="homepage.css">
   </head>
 
@@ -21,7 +21,7 @@
       <div class="header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
         <!TOP BAR>
-        <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+        <a href="homepage.php", class="logo", style="color: #FFFFE0">Corona Credit</a>
       </div>
 
       <div class="topnav">
@@ -37,7 +37,7 @@
       <div class = "section">
         <div class = "row">
           <div class="leftcolumn">
-            <img src="space.jpg" alt="Image 2">
+            <img src="register.jpg", style="border-radius: 5%">
           </div>
 
           <div class="rightcolumn">
@@ -57,7 +57,7 @@
             <h1>Click below to sign in to your account</h1>
             <!-- <p>Put some other stuff here and add a button</p> -->
             <br>
-            <a href = "", button class="button button1">This can go to something</a>
+            <a href = "login.php", button class="button button1">Login</a>
           </div>
 
           <div class="leftcolumn">

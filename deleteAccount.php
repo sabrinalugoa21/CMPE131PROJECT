@@ -3,17 +3,17 @@
 <head> <!This is the title of the webpage>
   <meta charset="utf-8">
   <title>Delete Account</title>
-  <link rel="stylesheet" href="deposit.css">
+  <link rel="stylesheet" href="deleteAccount.css">
 </head>
 
 <div class = "row">
      <div id = "grad1", class = "header">
-       <h1><p class = "custom1"> BANK NAME</p></h1>
+       <h1><p class = "custom1">Corona Credit</p></h1>
     </div>
      <div id = "">
        <div class="topnav">
          <a href="logout.php" style="float: right;"> Sign Out</a>
-         <a href="homepage.php" style="float: left;"> Return</a>
+         <a href="test_userpage.php" style="float: left;">User Page</a>
         </div>
 </div>
 

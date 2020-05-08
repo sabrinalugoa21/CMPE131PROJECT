@@ -2,7 +2,7 @@
 $errorMessage = "";
 $conn = mysqli_connect("localhost", "root", "", "userbank");
 if (isset($_POST["username"]) && isset($_POST["password"])){
-      if(isset($_SESSION['username'])){ //if the login is broken, check that this didn't break it 
+      if(isset($_SESSION['username'])){ //if the login is broken, check that this didn't break it
             session_start();
             session_unset();
             session_destroy();
@@ -14,6 +14,11 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 
       $username = $_POST['username'];
       $pin = $_POST['password'];
+//       $pinValidation = $_POST["pin"];
+//     if (!preg_match("/^[0-9]*$/",$pinValidation)) {
+//       $nameErr = "Only letters and white space allowed";
+//       die ("only numbers are allowed into pin ");
+// }
 
       if (empty($username) || empty($pin)){
             echo "variables empty";
@@ -62,7 +67,7 @@ else {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>ATM</title>
 
     <link rel="stylesheet" href="atm.css">
 	<!At this point in time, I will be using the registerStyle for the login page as well>
@@ -83,30 +88,26 @@ else {
  <div class="header">
    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
    <!TOP BAR>
-   <a href="homepage.php", class="logo", style="color: #FFFFE0">Bank Name</a>
+   <a href="homepage.php", class="logo", style="color: #FFFFE0">Corona Credit</a>
 </div>
 
 <div class="topnav">
        <a class="active" href="homepage.php">Home</a>
-       <a href="homepage.php#news">News</a>
-       <a href="homepage.php#contact">Contact</a>
-       <a href="homepage.php#about">About</a>
-       <div class="header-right">
-          <a class="active" href="register.php">Register</a>
-       </div>
 </div>
 <br>
 
 
       <div class = "row">
                   <div class= "loginform">
-                         <h2>Login</h2>
+                         <h2>ATM Login</h2>
                               <p style = "color: red; text-align: center;" ><?php echo $errorMessage ?></p>
                             <form action = "atmlogin.php" method="post">
                                     <p><input type= "text" name = "username" placeholder = "username" required></p>
                                     <p><input type= "password" name = "password" placeholder = "pin" required></p>
                               <p><button type = "submit" name= "login-submit">Login</button></p>
                               </form>
+                  </div>
+
                               <main>
                                     <?php
                                           if(isset($_SESSION['username'])){

@@ -76,7 +76,7 @@
       <body>  <!This is the title page>
           <div class = "row">
               <div id = "grad1", class = "header"><h1>
-               <p class = "custom1"> SJSU BANK</p>
+               <p class = "custom1"> Corona Credit</p>
              </h1></div>
           		<div class="topnav">
                         <a href="logout.php" style="float: right;"> Sign Out</a>
@@ -85,7 +85,7 @@
                         <a href= "addAccount.php" style="float: left;"> Add Accounts</a>
                         <a href= "deleteAccount.php" style="float: left;"> Delete Accounts</a>
                         <a href= "transfer.php" style="float: left;">Transfer Cash</a>
-                        <a href= "deposit.php" style="float: left;">Deposit Cash</a>
+                        <a href= "deposit-with-image.php" style="float: left;">Deposit Cash</a>
       				</div>
       			</div>
 

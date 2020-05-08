@@ -3,13 +3,12 @@
         box-sizing: border-box;
       }
       /*BODY TEXT*/
-        body {
-          font-family:Georgia;
-          color: #05386B;
-          padding: 5px;
-          background:	#a8e4a0;
-          margin: 0;
-        }
+      body {
+        font-family:Georgia;
+        color: #05386B;
+        padding: 10px;
+        background: #379683;
+      }
       /* HEADER */
       .header {
         padding: 30px;

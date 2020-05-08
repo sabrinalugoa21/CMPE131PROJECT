@@ -49,8 +49,11 @@
 
   .account {
     background-color: #EDF5E1;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10%;
+    margin-top: 10%;
+    left: 60%;
+    position: relative;
+
   }
   .account a{
     float: left;
@@ -329,6 +332,20 @@
   .author {
     text-align: center;
     color: cornflowerblue;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .loginform{
+    box-sizing: border-box;
+    margin: auto;
+    /* margin-right: 5%; */
+    width: 30%;
+    background: #FFFFE0;
+  
+    text-align: center;
   }
 /*END: SlideShow*/
 
