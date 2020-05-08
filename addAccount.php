@@ -1,13 +1,13 @@
 <?php
   session_start();
   //connnect to localhost
-  $conn = mysqli_connect("localhost","root","","users");
+  $conn = mysqli_connect("localhost","root","","userbank");
   //check connection
   if(!$conn){
       die("Connection failed" . mysqli_connect_error());
   }
   //sql to list accounts
-  $query = "SELECT * FROM bankaccounts";
+  $query = "SELECT * FROM accounts";
   $result1 = mysqli_query($conn, $query);
 
   $message = "";
@@ -22,18 +22,6 @@
       $balance = $_POST['balance'];
       //expand random number range if needed
       //Register user
-<<<<<<< HEAD
-      $sql = "INSERT INTO bankaccounts (userID, acctName, balance) VALUES
-      ('$userid','$acctname','$balance')";//starting balance in each account it zero
-      // echo $sql;
-      $results = mysqli_query($conn, $sql);
-      if ($results) {
-        echo "Added."; //As a toast message
-        //we can output the account info after
-      } else {
-        echo mysqli_error($conn);
-        echo "something 1";
-=======
 
       $validation = "SELECT acctName FROM accounts WHERE userID='$userid' AND acctName = '$acctname' ";
 
@@ -72,7 +60,6 @@
       }
       else {
             $message =  "Error: You already have a bank account with that name. Please choose a new name.";
->>>>>>> 0c0a2fb5ecc80e453d338eb80acf9d95f0d2fa60
       }
     } else {
       echo "A field is empty."; //Also as a toast message

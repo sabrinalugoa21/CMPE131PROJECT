@@ -19,16 +19,17 @@
        $account2 = $_POST['account2'];
        $amount = $_POST['amount'];
 
-       $sql1 = mysqli_query($conn,"SELECT balance FROM accounts WHERE userID = '$userID' AND acctName = '$account1'");
-       $sql2 = mysqli_query($conn, "SELECT balance FROM accounts WHERE userID = '$userID' AND acctName = '$account2'");
+       $sql1 = mysqli_query($conn,"SELECT balance, acctNum FROM accounts WHERE userID = '$userID' AND acctName = '$account1'");
+       $sql2 = mysqli_query($conn, "SELECT balance, acctNum FROM accounts WHERE userID = '$userID' AND acctName = '$account2'");
 
        $row1 = mysqli_fetch_assoc($sql1);
        $row2 = mysqli_fetch_assoc($sql2);
 
        $acctNum1 = $row1["balance"];
+       $acctID1 = $row1["acctNum"];
+
        $acctNum2 = $row2["balance"];
-
-
+       $acctID2 = $row2["acctNum"];
 
        if(ctype_alpha($amount) || ctype_punct($amount))
        {
@@ -57,11 +58,11 @@
            mysqli_query($conn, "UPDATE accounts set balance = '$sum2' WHERE userID = '$userID' AND acctName = '$account2'");
 
            $sql3 = "INSERT INTO transactions (transType, userID, acctNum, acctName, amount) VALUES
-                    ('Transfer from','$userID','','$account1','-$amount')";
+                    ('Transfer from','$userID','$acctID1','$account1','-$amount')";
            $result3 = mysqli_query($conn,$sql3);
 
            $sql4 = "INSERT INTO transactions (transType, userID, acctNum, acctName, amount) VALUES
-                   ('Transfer to','$userID','x','$account2','$amount')";
+                   ('Transfer to','$userID','$acctID2','$account2','$amount')";
            $result4 = mysqli_query($conn,$sql4); //NOT DISPLAYING ON TRANSACTION HISTORY
 
             $message = "<p>Success! You transferred $$amount from $account1 to $account2.</p>";

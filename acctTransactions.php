@@ -46,17 +46,17 @@
             				</div>
             			</div>
 
-            <div class = "leftcolumn">
+            <div class = "leftcolumn" style= "width: 75%">
                   <div class = "column">
                         <h1> View Transactions </h1>
                         <?php echo $message ?>
                         <div class= display>
                           <?php
                                 if ($tableresult->num_rows > 0) {
-                                    echo "<table id=customers><tr><th>Date</th><th>Transaction Type</th><th>Account Number</th><th>Account Name</th></th><th>Transactions</th></tr>";
+                                    echo "<table id=customers><tr><th>Date</th><th>Transaction Type</th><th>Account Number</th><th>Account Name</th></th><th>Transactions</th><th>File Uploaded</th></tr>";
                                     // output data of each row
                                     while($row = $tableresult->fetch_assoc()) {
-                                        echo "<tr><td>".$row["date"]."</td><td>".$row["transType"]."</td><td>".$row["acctNum"]."</td><td>".$row["acctName"]."</td><td>$".$row["amount"]."</td></tr>";
+                                        echo "<tr><td>".$row["date"]."</td><td>".$row["transType"]."</td><td>".$row["acctNum"]."</td><td>".$row["acctName"]."</td><td>$".$row["amount"]."</td><td>".$row["image"]."</td></tr>";
                                     }
                                     echo "</table>";
                                 } else {

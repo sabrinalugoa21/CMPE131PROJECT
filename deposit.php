@@ -72,7 +72,7 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
 
             <div class = "leftcolumn">
                   <div class = "column">
-                        <h1> Deposit to Account</h1>
+                        <h1>Deposit to Account</h1>
                         <form action="" method="post">
                               <p> Account name: <select id="account" name="account">
                               <?php

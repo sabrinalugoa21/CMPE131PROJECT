@@ -42,8 +42,8 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
 
                     if ($conn->query($sql2) === TRUE) {
                        //echo "Record updated successfully"; //commented out so user does not see this
-                       $sql3 = "INSERT INTO transactions (transType, userID, acctNum, acctName, amount) VALUES
-                               ('Deposit','$userID','$acctNum','$account','$amount')";
+                       $sql3 = "INSERT INTO transactions (transType, userID, acctNum, acctName, amount, image) VALUES
+                               ('Deposit','$userID','$acctNum','$account','$amount', '$image')";
                         $result3 = mysqli_query($conn,$sql3);
                    } else {
                        echo "Error updating record: " . $conn->error;

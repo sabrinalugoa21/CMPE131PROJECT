@@ -35,6 +35,7 @@ CREATE TABLE `transactions` (
   `acctNum` int(11) NOT NULL,
   `acctName` varchar(255) DEFAULT NULL,
   `amount` float(10,2) NOT NULL
+   `image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
