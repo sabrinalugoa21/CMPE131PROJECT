@@ -22,7 +22,7 @@
 <?php
   session_start();
   //connnect to localhost
-  $conn = mysqli_connect("localhost","root","","userbank");
+  $conn = mysqli_connect("localhost","root","","users");
   //check connection
   if(!$conn){
       die("Connection failed" . mysqli_connect_error());
@@ -38,8 +38,8 @@
       $userid = $_SESSION['userID'];
 
       //select $query
-      $sql = "SELECT * FROM accounts WHERE userID = '$userid' AND balance = 0";
-      $sql1 = "SELECT COUNT(*) FROM accounts where userID = '$userid' AND balance = 0";
+      $sql = "SELECT * FROM accounts WHERE userID = '$userID' AND balance = 0";
+      $sql1 = "SELECT COUNT(*) FROM accounts where userID = '$userID' AND balance = 0";
       $rs = mysqli_query($conn,$sql1);
       $result1 = mysqli_fetch_array($rs);
 
@@ -93,8 +93,8 @@
       $userid = $_SESSION['userID'];
 
       //select $query
-      $sql = "SELECT * FROM accounts WHERE userID = '$userid' AND balance != 0";
-      $sql1 = "SELECT COUNT(*) FROM accounts where userID = '$userid' AND balance != 0";
+      $sql = "SELECT * FROM accounts WHERE userID = '$userID' AND balance != 0";
+      $sql1 = "SELECT COUNT(*) FROM accounts where userID = '$userID' AND balance != 0";
       $rs = mysqli_query($conn,$sql1);
       $result1 = mysqli_fetch_array($rs);
 

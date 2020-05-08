@@ -7,6 +7,7 @@
       {
        die("Connection failed: " . mysqli_connect_error());
       }
+
       $message = "";
       $userID = $_SESSION['userID'];
       //$userID = 101010; //for testing
@@ -18,8 +19,8 @@
        $account2 = $_POST['account2'];
        $amount = $_POST['amount'];
 
-       $sql1 = mysqli_query($conn,"SELECT balance FROM accounts WHERE userID = '$userID' AND acctname = '$account1'");
-       $sql2 = mysqli_query($conn, "SELECT balance FROM accounts WHERE userID = '$userID' AND acctname = '$account2'");
+       $sql1 = mysqli_query($conn,"SELECT balance FROM accounts WHERE userID = '$userID' AND acctName = '$account1'");
+       $sql2 = mysqli_query($conn, "SELECT balance FROM accounts WHERE userID = '$userID' AND acctName = '$account2'");
 
        $row1 = mysqli_fetch_assoc($sql1);
        $row2 = mysqli_fetch_assoc($sql2);
@@ -28,9 +29,18 @@
        $acctNum2 = $row2["balance"];
 
 
-       if($acctNum1 < $amount)
+
+       if(ctype_alpha($amount) || ctype_punct($amount))
+       {
+         $message = "<b>ONLY numbers!</b>";
+       }
+       else if($acctNum1 < $amount)
        {
           $message = "<b>Error: insufficient funds!</b>";
+       }
+       else if($amount < 0)
+       {
+         $message = "<b>Only real numbers.</b>";
        }
        else if ($account1 == $account2)
        {
@@ -43,13 +53,13 @@
           $sum2 = $acctNum2 + $amount;
 
 
-           mysqli_query($conn, "UPDATE accounts set balance = '$sum1' WHERE userID = '$userID' AND acctname = '$account1'");
-           mysqli_query($conn, "UPDATE accounts set balance = '$sum2' WHERE userID = '$userID' AND acctname = '$account2'");
+           mysqli_query($conn, "UPDATE accounts set balance = '$sum1' WHERE userID = '$userID' AND acctName = '$account1'");
+           mysqli_query($conn, "UPDATE accounts set balance = '$sum2' WHERE userID = '$userID' AND acctName = '$account2'");
 
 
             $message = "<p>Success! You transferred $$amount from $account1 to $account2.</p>";
-            }
       }
+    }
  }
     else
     {
@@ -70,7 +80,7 @@
              </h1></div>
           		<div class="topnav">
                         <a href="logout.php" style="float: right;"> Sign Out</a>
-      			<a href="test_userpage.php" style="float: left;"> Return to Home</a>
+      			            <a href="test_userpage.php" style="float: left;"> Return to Home</a>
                         <a href= "customAccounts.php" style="float: left;"> View Accounts</a>
                         <a href= "addAccount.php" style="float: left;"> Add Accounts</a>
                         <a href= "deleteAccount.php" style="float: left;"> Delete Accounts</a>
@@ -86,22 +96,22 @@
               <p>Transfer from:
                 <select name = "account1">
                   <?php
-                    $result1 = mysqli_query($conn, "SELECT acctname, balance from accounts WHERE userID = '$userID'");
+                    $result1 = mysqli_query($conn, "SELECT acctName, balance from accounts WHERE userID = '$userID'");
                     // $resul2 = mysqli_query($conn, "SELECT acctnum from accounts WHERE userID = '$userID'");
 
                     while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc()?>
-                      <option value="<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?>  [Balance: $<?php echo $row1["balance"];?>]</option>
+                      <option value="<?php echo $row1["acctName"];?>"><?php echo $row1["acctName"];?>  [Balance: $<?php echo $row1["balance"];?>]</option>
                       <?php endwhile;?>
                     </select></p>
 
               <p>Transfer to:
                 <select name = "account2">
                   <?php
-                    $result1 = mysqli_query($conn, "SELECT acctname, balance from accounts WHERE userID = '$userID'");
+                    $result1 = mysqli_query($conn, "SELECT acctName, balance from accounts WHERE userID = '$userID'");
                     // $resul2 = mysqli_query($conn, "SELECT acctnum from accounts WHERE userID = '$userID'");
 
                     while($row1 = $result1->fetch_assoc()):; //&& $row2 = $result2->fetch_assoc();?>
-                      <option value="<?php echo $row1["acctname"];?>"><?php echo $row1["acctname"];?>  [Balance: $<?php echo $row1["balance"];?>]</option>
+                      <option value="<?php echo $row1["acctName"];?>"><?php echo $row1["acctName"];?>  [Balance: $<?php echo $row1["balance"];?>]</option>
                       <?php endwhile;?>
 
                     </select>

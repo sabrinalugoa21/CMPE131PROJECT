@@ -1,13 +1,13 @@
 <?php
   session_start();
   //connnect to localhost
-  $conn = mysqli_connect("localhost","root","","userbank");
+  $conn = mysqli_connect("localhost","root","","users");
   //check connection
   if(!$conn){
       die("Connection failed" . mysqli_connect_error());
   }
   //sql to list accounts
-  $query = "SELECT * FROM accounts";
+  $query = "SELECT * FROM bankaccounts";
   $result1 = mysqli_query($conn, $query);
 
 
@@ -22,7 +22,7 @@
       echo $balance;
       //expand random number range if needed
       //Register user
-      $sql = "INSERT INTO accounts (userID, acctName, balance) VALUES
+      $sql = "INSERT INTO bankaccounts (userID, acctName, balance) VALUES
       ('$userid','$acctname','$balance')";//starting balance in each account it zero
       // echo $sql;
       $results = mysqli_query($conn, $sql);
