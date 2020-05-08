@@ -76,6 +76,7 @@
     if ($_POST["fname"] && $_POST["lname"] && $_POST["username"] && /*$_POST["password"] &&*/ $_POST["pin"]
         && $_POST["email"]){
 
+             $valid = TRUE;
     $userID = rand(100000,199999); //expand random number range if needed
     $fname = $_POST["fname"];
     $fnameValidation = $_POST["fname"];
@@ -126,34 +127,53 @@
         die("Connection failed" . mysqli_connect_error());
     }
 
-    //Register user
-    $sql = "INSERT INTO useraccounts (userID, fname, lname, username, /*password,*/ pin, email) VALUES
-            ('$userID','$fname','$lname','$username','$pin','$email')";
-    //$sql2 = "INSERT INTO accounts (userID) VALUES ('$userID')";
+    $validation = "SELECT username, email FROM useraccounts";
 
+    $valresult = $conn->query($validation);
 
-    // echo $sql;
-    $results = mysqli_query($conn, $sql);
-
-
-    /*if ($results) {
-        $accounts = "SELECT * FROM accounts";
-        $initialize = mysqli_query($conn, $accounts);
-        /*BEGIN: initializing the checking and savings accounts*/
-
-    if ($results) {
-        echo "Registered."; //As a toast message
-        $sql2 = "INSERT INTO accounts (userID, acctname, balance) VALUES
-                ('$userID','Savings','0.00')"; //starting balance in each account is zero
-            $results2 = mysqli_query($conn, $sql2);
-
-        header('Location: login.php'); //Change location based on where project folder is saved.
-      } else {
-      echo mysqli_error($conn);
-      echo "Error.";
+    if ($valresult->num_rows > 0) {
+     while($valrow = $valresult->fetch_assoc()) {
+          if ($valrow["username"] == $username){      //if there's already an acct with that name
+                 $valid = FALSE;
+          }
+          else if($valrow["email"] == $email){
+                $valid = FALSE;
+          }
+     }
     }
+          if ($valid){
+                //Register user
+                $sql = "INSERT INTO useraccounts (userID, fname, lname, username, /*password,*/ pin, email) VALUES
+                        ('$userID','$fname','$lname','$username','$pin','$email')";
+                //$sql2 = "INSERT INTO accounts (userID) VALUES ('$userID')";
 
-          mysqli_close($conn);
+
+                // echo $sql;
+                $results = mysqli_query($conn, $sql);
+
+
+                /*if ($results) {
+                    $accounts = "SELECT * FROM accounts";
+                    $initialize = mysqli_query($conn, $accounts);
+                    /*BEGIN: initializing the checking and savings accounts*/
+
+                if ($results) {
+                    echo "Registered."; //As a toast message
+                    $sql2 = "INSERT INTO accounts (userID, acctname, balance) VALUES
+                            ('$userID','Savings','0.00')"; //starting balance in each account is zero
+                        $results2 = mysqli_query($conn, $sql2);
+
+                    header('Location: login.php'); //Change location based on where project folder is saved.
+                  } else {
+                  echo mysqli_error($conn);
+                  echo "Error.";
+                }
+
+                      mysqli_close($conn);
+               }
+                else {
+                      echo "Error: that username or email is already in use.";
+               }
 
     } else {
       echo "A field is empty."; //Also as a toast message
