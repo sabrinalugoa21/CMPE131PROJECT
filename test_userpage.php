@@ -44,6 +44,7 @@
             <div class="topnav2">
               <a href="deposit-with-image.php" style="float: left">Deposit</a>
               <a href="transfer.php" style="float: left;">Transfer</a>
+              <a href="acctTransactions.php" style="float: right;">Transaction History</a>
             </div>
           </div>
         </div>

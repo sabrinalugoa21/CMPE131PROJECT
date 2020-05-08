@@ -56,6 +56,13 @@
            mysqli_query($conn, "UPDATE accounts set balance = '$sum1' WHERE userID = '$userID' AND acctName = '$account1'");
            mysqli_query($conn, "UPDATE accounts set balance = '$sum2' WHERE userID = '$userID' AND acctName = '$account2'");
 
+           $sql3 = "INSERT INTO transactions (transType, userID, acctNum, acctName, amount) VALUES
+                    ('Transfer from','$userID','','$account1','-$amount')";
+           $result3 = mysqli_query($conn,$sql3);
+
+           $sql4 = "INSERT INTO transactions (transType, userID, acctNum, acctName, amount) VALUES
+                   ('Transfer to','$userID','x','$account2','$amount')";
+           $result4 = mysqli_query($conn,$sql4); //NOT DISPLAYING ON TRANSACTION HISTORY
 
             $message = "<p>Success! You transferred $$amount from $account1 to $account2.</p>";
       }
