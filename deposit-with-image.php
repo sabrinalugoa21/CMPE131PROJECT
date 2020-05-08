@@ -27,7 +27,6 @@ if(isset($_POST['SubmitButton'])){ //check if form was submitted
        else{
               $file = $_FILES['image'];
               $image = $_FILES['image']['name'];
-              echo $image;
               $db = mysqli_connect("localhost","root","","userbank");
 
               $sql = "SELECT acctNum, balance FROM accounts WHERE userID='$userID' AND acctName = '$account' ";
